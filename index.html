@@ -367,7 +367,22 @@
 .contents_div .hbc-stat .hbc-n{
   display:block;font-family:var(--hbc-util);font-size:64px;font-weight:800;
   letter-spacing:-.05em;line-height:.95;color:var(--hbc-blue);
+  /* 롤링 중 자릿수 폭이 흔들리지 않도록 고정폭 숫자 */
+  font-variant-numeric:tabular-nums;font-feature-settings:'tnum' 1;
 }
+/* 오도미터 롤링 — 자릿수별 세로 스크롤 후 착 멈춤
+   clip-path 로 잘라내는 이유: overflow:hidden 은 인라인블록의 baseline 을
+   박스 하단으로 바꿔버려 단위(%, 만 평)와 밑선이 어긋난다. */
+.contents_div .hbc-od-c{
+  position:relative;display:inline-block;
+  clip-path:inset(0);-webkit-clip-path:inset(0);
+}
+.contents_div .hbc-od-c > i{font-style:normal;visibility:hidden;}  /* 폭·baseline 기준자 */
+.contents_div .hbc-od-s{
+  position:absolute;top:0;left:0;right:0;
+  will-change:transform;transform:translateY(0);
+}
+.contents_div .hbc-od-s > span{display:block;}
 .contents_div .hbc-stat .hbc-n u{text-decoration:none;font-size:28px;margin-left:2px;}
 .contents_div .hbc-stat .hbc-cap{display:block;margin:12px 0 0;font-size:14px;color:var(--hbc-tx2);font-weight:600;}
 
@@ -385,7 +400,8 @@
 .contents_div .hbc-bars .hbc-blb{display:flex;justify-content:space-between;align-items:baseline;margin:0 0 7px;}
 .contents_div .hbc-bars .hbc-blb > span{font-size:13.5px;color:var(--hbc-tx2);font-weight:600;}
 /* 카운트업용 래퍼는 어떤 스타일도 덮어쓰지 않음 */
-.contents_div .hbc-cnt{font:inherit;color:inherit;letter-spacing:inherit;}
+.contents_div .hbc-cnt{font:inherit;color:inherit;letter-spacing:inherit;
+  font-variant-numeric:tabular-nums;font-feature-settings:'tnum' 1;}
 .contents_div .hbc-bars .hbc-blb b{
   font-family:var(--hbc-util);font-size:20px;font-weight:800;letter-spacing:-.03em;color:var(--hbc-tx3);
 }
@@ -587,7 +603,13 @@
       rgba(var(--hbc-fade),0.98) 95%,
       rgba(var(--hbc-fade),1) 100%);
   }
-  .contents_div .hbc-hero{padding:18px 15px 8px;}
+  /* 히어로 이미지가 -55px 로 겹쳐 올라오므로 텍스트를 위 레이어로 올림
+     (배경은 .hbc-page 가 동일한 색을 깔고 있어 제거해도 변화 없음) */
+  .contents_div .hbc-hero{
+    padding:18px 15px 8px;
+    position:relative;z-index:1;background:none;
+  }
+  .contents_div .hbc-hero-img{z-index:0;}
   .contents_div .hbc-hero .hbc-hero-meta{margin-bottom:37px;padding-bottom:10px;gap:10px;}
   .contents_div .hbc-hero .hbc-hero-meta .hbc-meta-l{font-size:11.5px;}
   .contents_div .hbc-hero .hbc-hero-meta .hbc-meta-r{font-size:10px;letter-spacing:.1em;}
@@ -622,8 +644,8 @@
       rgba(250,250,250,.04) 62%,
       rgba(250,250,250,0) 70%);
   }
-  .contents_div .hbc-sec{scroll-margin-top:52px;}
-  .contents_div .hbc-nav a{font-size:12.5px;padding:13px 2px 11px;}
+  .contents_div .hbc-sec{scroll-margin-top:48px;}
+  .contents_div .hbc-nav a{font-size:12.5px;padding:11px 2px 9px;}
   .contents_div .hbc-stitle h2{font-size:22px;}
   /* 교육 생태계 3개 카드: 모바일에서도 1행 3열 */
   .contents_div .hbc-step .hbc-tier{grid-template-columns:repeat(3,1fr);gap:6px;}
@@ -1131,28 +1153,36 @@
     return out;
   }
 
-  function countUp(items){
+  /* opt.dur 지속시간 · opt.pow 감속 강도 · opt.tick 최소 갱신 간격(ms)
+     tick 을 주면 매 프레임(60fps) 대신 띄엄띄엄 갱신돼 숫자가 덜 어지럽다 */
+  function countUp(items, opt){
     if(!items || !items.length) return;
+    opt = opt || {};
     if(reduce || !window.requestAnimationFrame){
       items.forEach(function(it){ it.el.textContent = fmt(it.val, it.dec, it.comma); });
       return;
     }
-    var dur = 1150, t0 = null;
+    var dur  = opt.dur || 1150,
+        pow  = opt.pow || 3,
+        tick = opt.tick || 0,
+        t0 = null, last = -1e9;
     items.forEach(function(it){ it.el.textContent = fmt(0, it.dec, it.comma); });
     requestAnimationFrame(function step(ts){
       if(t0 === null) t0 = ts;
       var p = Math.min((ts - t0) / dur, 1);
-      var e = 1 - Math.pow(1 - p, 3);
+      if(tick && p < 1 && (ts - last) < tick){ requestAnimationFrame(step); return; }
+      last = ts;
+      var e = 1 - Math.pow(1 - p, pow);
       items.forEach(function(it){ it.el.textContent = fmt(it.val * e, it.dec, it.comma); });
       if(p < 1) requestAnimationFrame(step);
     });
   }
 
   var units = [].slice.call(root.querySelectorAll(
-    '.hbc-donut, .hbc-bars .hbc-r, .hbc-trio > div, .hbc-step .hbc-out'
+    '.hbc-donut, .hbc-bars .hbc-r, .hbc-trio > div, .hbc-step .hbc-out, .hbc-stat'
   ));
 
-  /* 큰 수치(.hbc-stat .hbc-n)와 캡션·본문 숫자는 카운트 대상에서 제외 */
+  /* 캡션(.hbc-cap)·본문 숫자는 계속 제외 — 큰 수치 .hbc-n 만 카운트 */
   var NUM_SEL = '.hbc-dlb b, .hbc-blb b, dd, .hbc-out .hbc-n';
 
   units.forEach(function(u){
@@ -1168,6 +1198,71 @@
     }
   });
 
+  /* ── 오도미터 : .hbc-stat .hbc-n 전용 ──
+     실행 직전에만 DOM 을 만들고, 끝나면 원래 텍스트로 되돌린다.
+     (평소엔 순수 텍스트라 검색·복사·리사이즈에 안전) */
+  var OD_DUR = 1150, OD_GAP = 90;
+
+  function buildOdo(host){
+    var w = document.createTreeWalker(host, NodeFilter.SHOW_TEXT, null, false), t, node = null;
+    while((t = w.nextNode())){ if(/\d/.test(t.nodeValue)){ node = t; break; } }
+    if(!node) return null;
+    var m = node.nodeValue.match(/\d[\d,]*/);
+    if(!m) return null;
+
+    var raw = m[0];
+    var wrap = document.createElement('span');
+    var cells = [];
+
+    raw.split('').forEach(function(ch){
+      if(ch < '0' || ch > '9'){ wrap.appendChild(document.createTextNode(ch)); return; }
+      var cell = document.createElement('span');
+      cell.className = 'hbc-od-c';
+
+      var ruler = document.createElement('i');       /* 최종 숫자 = 폭·baseline 기준 */
+      ruler.textContent = ch;
+      cell.appendChild(ruler);
+
+      var stack = document.createElement('span');
+      stack.className = 'hbc-od-s';
+      for(var turn = 0; turn < 2; turn++){           /* 0~9 를 두 바퀴 = 한 바퀴 돌고 착지 */
+        for(var k = 0; k <= 9; k++){
+          var d = document.createElement('span');
+          d.textContent = k;
+          stack.appendChild(d);
+        }
+      }
+      cell.appendChild(stack);
+      wrap.appendChild(cell);
+      cells.push({cell:cell, stack:stack, d:+ch});
+    });
+    if(!cells.length) return null;
+
+    var tail = node.splitText(m.index);
+    tail.nodeValue = tail.nodeValue.slice(raw.length);
+    tail.parentNode.insertBefore(wrap, tail);
+    return {wrap:wrap, raw:raw, cells:cells};
+  }
+
+  function runOdo(host){
+    var od = buildOdo(host);
+    if(!od) return;
+
+    od.cells.forEach(function(c, i){
+      var h = c.cell.getBoundingClientRect().height;   /* 줄 높이를 실측 — 브레이크포인트 무관 */
+      [].slice.call(c.stack.children).forEach(function(sp){ sp.style.height = h + 'px'; });
+      c.stack.offsetHeight;                            /* 리플로우 강제 */
+      c.stack.style.transition = 'transform ' + OD_DUR + 'ms cubic-bezier(.16,1,.3,1)';
+      c.stack.style.transitionDelay = (i * OD_GAP) + 'ms';
+      c.stack.style.transform = 'translateY(-' + ((10 + c.d) * h) + 'px)';
+    });
+
+    /* 끝나면 평범한 텍스트로 복원 → 리사이즈·확대에도 어긋나지 않음 */
+    setTimeout(function(){
+      if(od.wrap.parentNode) od.wrap.parentNode.replaceChild(document.createTextNode(od.raw), od.wrap);
+    }, OD_DUR + OD_GAP * od.cells.length + 120);
+  }
+
   function runUnit(u){
     if(u._hbcDone) return;
     u._hbcDone = true;
@@ -1180,6 +1275,11 @@
       } else {
         fl.style.width = w;
       }
+    }
+    if(u.classList.contains('hbc-stat')){
+      var n = u.querySelector('.hbc-n');
+      if(n && !reduce) runOdo(n);   /* 모션 최소화 설정이면 원래 텍스트 그대로 */
+      return;
     }
     countUp(u._hbcNums);
   }
