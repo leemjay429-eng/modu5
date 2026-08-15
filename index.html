@@ -16,6 +16,15 @@
      ═══════════════════════════════════════════════════════════ -->
 <div class="contents_div">
 
+<!-- LCP : 히어로 이미지·상단 폰트를 CSS 파싱 전에 미리 내려받게 함
+     (이미지 파일명을 바꾸면 아래 preload href도 함께 수정) -->
+<link rel="preload" as="image" href="img/히어로배경.webp" fetchpriority="high">
+<link rel="preload" as="font" type="font/woff2" crossorigin
+      href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil4Medium.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin
+      href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil6ExtraBold.woff2">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800&display=swap" rel="stylesheet">
 
@@ -217,41 +226,51 @@
 .contents_div .hbc-hero .hbc-hero-sub{
   margin:25px 0 35px;font-size:15.5px;font-weight:400;color:var(--hbc-tx2);line-height:1.5;
 }
+/* 히어로 이미지 — LCP 대상이라 CSS 배경이 아닌 실제 <img> 로 처리
+   (배경 이미지는 CSS 파싱 후에야 발견돼 로딩이 늦음) */
 .contents_div .hbc-hero-img{
-  --hbc-hero-src:url("img/히어로배경.webp");
+  position:relative;
   width:100%;
   border-top:1px solid #C3D5EE;
   aspect-ratio:1600 / 660;
-  background-image:var(--hbc-hero-src);
-  background-size:cover;
-  background-position:center bottom;
-  background-repeat:no-repeat;
-  background-color:var(--hbc-blue-lt);
+  overflow:hidden;
+  background-color:var(--hbc-blue-lt);   /* 도착 전 자리 표시 */
+}
+.contents_div .hbc-hero-img > img{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:center bottom;
+  /* 축소 렌더링 시 계단현상 방지 · 모바일 고해상도 대응 */
+  image-rendering:auto;
+  -webkit-backface-visibility:hidden;
+  backface-visibility:hidden;
+  transform:translateZ(0);
 }
 
-/* ══════════ 내비 ══════════ */
+/* ══════════ 내비 · 진한 블루 배경 + 흰색 텍스트 ══════════ */
 .contents_div .hbc-nav{
   position:sticky;top:0;z-index:20;
-  background:var(--hbc-bg);border-bottom:1px solid var(--hbc-line);
+  background:var(--hbc-blue-dp);border-bottom:1px solid rgba(255,255,255,.14);
 }
 .contents_div .hbc-nav ul{display:flex;}
 .contents_div .hbc-nav li{flex:1 1 0;min-width:0;position:relative;}
 .contents_div .hbc-nav li+li::before{
   content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);
-  width:1px;height:70%;background:#C3D5EE;
+  width:1px;height:70%;background:rgba(255,255,255,.22);
 }
 .contents_div .hbc-nav a{
   display:block;text-align:center;padding:16px 4px 13px;
-  color:var(--hbc-tx2);font-size:14.5px;font-weight:700;letter-spacing:-.03em;
+  color:rgba(255,255,255,.78);font-size:14.5px;font-weight:700;letter-spacing:-.03em;
   border-bottom:3px solid transparent;
   transition:color .18s,background .18s,border-color .18s;
 }
 .contents_div .hbc-nav a:hover,
-.contents_div .hbc-nav a:focus-visible{color:var(--hbc-blue);background:#D8E3F4;}
+.contents_div .hbc-nav a:focus-visible{color:#fff;background:rgba(255,255,255,.12);}
 .contents_div .hbc-nav a.is-on{
-  color:var(--hbc-blue);font-weight:800;border-bottom-color:var(--hbc-blue);
+  color:#fff;font-weight:800;border-bottom-color:var(--hbc-lime);
 }
-.contents_div .hbc-nav a:focus-visible{outline:2px solid var(--hbc-blue);outline-offset:-4px;}
+.contents_div .hbc-nav a:focus-visible{outline:2px solid var(--hbc-lime);outline-offset:-4px;}
 
 /* ══════════ 섹션 타이틀 ══════════ */
 .contents_div .hbc-stitle{text-align:center;margin:0 0 34px;}
@@ -503,12 +522,23 @@
 }
 .contents_div .hbc-box:hover .hbc-lg i{transform:translateX(5px);}
 
-/* ══════════ 푸터 ══════════ */
+/* ══════════ 푸터 · 관련 태그만 ══════════ */
 .contents_div .hbc-foot{
-  width:100%;background:#002E6F;color:#A6BEE0;
-  padding:26px 50px;font-size:11.5px;line-height:1.75;text-align:center;
+  width:100%;
+  background:var(--hbc-bg);              /* 위 CTA 섹션과 동일 */
+  border-top:1px solid var(--hbc-line);  /* 구분 실선 */
+  padding:26px 80px;text-align:center;   /* 좌우 = 섹션 50px + 30px */
 }
-.contents_div .hbc-foot b{color:#fff;font-weight:700;}
+/* 관련 태그 */
+.contents_div .hbc-foot .hbc-tags{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:6px;
+}
+.contents_div .hbc-foot .hbc-tags li{
+  font-size:11.5px;font-weight:400;line-height:1;letter-spacing:-.02em;
+  color:var(--hbc-tx3);background:var(--hbc-gray-2);
+  border:1px solid var(--hbc-line);border-radius:14px;
+  padding:7px 11px 6px;
+}
 
 /* ══════════ 등장 모션 ══════════ */
 .contents_div .hbc-rev{opacity:0;transform:translateY(15px);transition:opacity .6s ease,transform .6s ease;}
@@ -561,7 +591,9 @@
   .contents_div .hbc-hero .hbc-hero-meta{margin-bottom:37px;padding-bottom:10px;gap:10px;}
   .contents_div .hbc-hero .hbc-hero-meta .hbc-meta-l{font-size:11.5px;}
   .contents_div .hbc-hero .hbc-hero-meta .hbc-meta-r{font-size:10px;letter-spacing:.1em;}
-  .contents_div .hbc-foot{padding:26px 15px;}
+  .contents_div .hbc-foot{padding:22px 15px;}
+  .contents_div .hbc-foot .hbc-tags{gap:5px;}
+  .contents_div .hbc-foot .hbc-tags li{font-size:10.5px;padding:6px 9px 5px;}
   .contents_div .hbc-hero h1{font-size:19px;line-height:1.3;}
   /* 한 줄에 들어오도록 화면 폭에 맞춰 축소 */
   .contents_div .hbc-hero h1 em{font-size:clamp(26px, 8.4vw, 34px);margin-top:5px;line-height:1.15;}
@@ -570,23 +602,25 @@
     aspect-ratio:16 / 10;
     border-top:0;
     margin-top:-55px;   /* 투명한 상단을 텍스트 쪽으로 끌어올림 */
-    background-image:
-      linear-gradient(to bottom,
-        rgba(250,250,250,1) 0%,
-        rgba(250,250,250,.98) 4%,
-        rgba(250,250,250,.93) 8%,
-        rgba(250,250,250,.86) 12%,
-        rgba(250,250,250,.76) 17%,
-        rgba(250,250,250,.65) 22%,
-        rgba(250,250,250,.54) 27%,
-        rgba(250,250,250,.44) 32%,
-        rgba(250,250,250,.33) 38%,
-        rgba(250,250,250,.23) 44%,
-        rgba(250,250,250,.15) 50%,
-        rgba(250,250,250,.09) 56%,
-        rgba(250,250,250,.04) 62%,
-        rgba(250,250,250,0) 70%),
-      var(--hbc-hero-src);
+  }
+  /* 상단 페이드 : 이미지 위에 얹는 오버레이 (이미지 자체는 손상 없음) */
+  .contents_div .hbc-hero-img::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(to bottom,
+      rgba(250,250,250,1) 0%,
+      rgba(250,250,250,.98) 4%,
+      rgba(250,250,250,.93) 8%,
+      rgba(250,250,250,.86) 12%,
+      rgba(250,250,250,.76) 17%,
+      rgba(250,250,250,.65) 22%,
+      rgba(250,250,250,.54) 27%,
+      rgba(250,250,250,.44) 32%,
+      rgba(250,250,250,.33) 38%,
+      rgba(250,250,250,.23) 44%,
+      rgba(250,250,250,.15) 50%,
+      rgba(250,250,250,.09) 56%,
+      rgba(250,250,250,.04) 62%,
+      rgba(250,250,250,0) 70%);
   }
   .contents_div .hbc-sec{scroll-margin-top:52px;}
   .contents_div .hbc-nav a{font-size:12.5px;padding:13px 2px 11px;}
@@ -669,7 +703,14 @@
     <h1>호남권 반도체 첨단 국가산단<em><span>궁금증 풀러 왔습니다</span></em></h1>
     <p class="hbc-hero-sub">전력 · 용수 · 부지 · 인재<br>가장 많이 물어보신 네 가지를 팩트로 확인했습니다</p>
   </header>
-  <div class="hbc-hero-img" role="img" aria-label="호남권 반도체 첨단 국가산단 조성 예정지 일대 야경"></div>
+  <div class="hbc-hero-img">
+    <img src="img/히어로배경.webp"
+         srcset="img/히어로배경.webp 1600w"
+         sizes="(max-width:800px) 100vw, 800px"
+         width="1600" height="660"
+         alt="호남권 반도체 첨단 국가산단 조성 예정지 일대 야경"
+         fetchpriority="high" loading="eager" decoding="async">
+  </div>
 
   <!-- ══ 내비 ══ -->
   <nav class="hbc-nav" aria-label="섹션 바로가기">
@@ -972,8 +1013,18 @@
   </section>
 
   <footer class="hbc-foot">
-    <b>전남광주통합특별시</b> · 압도적 성장! 함께 사는 특별시<br>
-    본문 수치는 ‘반도체 클러스터 왜 전남광주인가?’ 카드뉴스 1~4편 기준입니다.
+    <ul class="hbc-tags" aria-label="관련 태그">
+      <li>#호남권반도체</li>
+      <li>#첨단국가산단</li>
+      <li>#반도체클러스터</li>
+      <li>#전남광주통합특별시</li>
+      <li>#국가첨단전략산업</li>
+      <li>#전력</li>
+      <li>#용수</li>
+      <li>#부지</li>
+      <li>#인재양성</li>
+      <li>#팩트체크</li>
+    </ul>
   </footer>
 
 </div><!-- /.hbc-page -->
