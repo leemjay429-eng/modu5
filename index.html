@@ -87,11 +87,6 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
   --hbc-ico-fire:url("img/화력.svg");
   --hbc-ico-renew:url("img/친환경.svg");
 
-  /* 섹션 헤드라인 배경 이미지 (800px) — 파일로 교체 시 이 세 줄만 수정 */
-  --hbc-shot-e2:url("img/섹션2.webp");
-  --hbc-shot-e3:url("img/섹션3.webp");
-  --hbc-shot-e4:url("img/섹션4.webp");
-
   max-width:var(--hbc-w);
   margin-left:auto;
   margin-right:auto;
@@ -151,16 +146,20 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
   padding:70px 50px;
 }
 /* 섹션 배너 이미지 */
-.contents_div .hbc-sec--e2{--hbc-shot:var(--hbc-shot-e2);--hbc-fade:237,242,248;}   /* #EDF2F8 */
-.contents_div .hbc-sec--e3{--hbc-shot:var(--hbc-shot-e3);--hbc-shot-y:78%;--hbc-fade:250,250,250;} /* #FAFAFA */
-.contents_div .hbc-sec--e4{--hbc-shot:var(--hbc-shot-e4);--hbc-fade:239,242,247;}   /* #EFF2F7 */
+.contents_div .hbc-sec--e2{--hbc-fade:237,242,248;}   /* #EDF2F8 */
+.contents_div .hbc-sec--e3{--hbc-shot-y:78%;--hbc-fade:250,250,250;} /* #FAFAFA */
+.contents_div .hbc-sec--e4{--hbc-fade:239,242,247;}   /* #EFF2F7 */
 .contents_div .hbc-banner{
   position:relative;
   aspect-ratio:800/200;border-radius:0;margin:-70px -50px 34px;
-  background-image:var(--hbc-shot);
-  background-size:cover;
-  background-position:center var(--hbc-shot-y,50%);
-  background-repeat:no-repeat;
+}
+/* 배너 이미지 — 검색엔진이 색인할 수 있도록 CSS 배경이 아닌 실제 <img> 로 처리 */
+.contents_div .hbc-banner > img{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:center var(--hbc-shot-y,50%);
+  display:block;
 }
 /* 배너 하단 페이드 - 섹션 배경색으로 서서히 녹아들게 */
 .contents_div .hbc-banner::after{
@@ -364,7 +363,7 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
   color:var(--hbc-blue-dp);background:var(--hbc-lime-bg);
   padding:4px 8px 3px;border-radius:3px;line-height:1;
 }
-.contents_div .hbc-fact > .hbc-fact-hd b{font-size:15px;font-weight:700;letter-spacing:-.03em;}
+.contents_div .hbc-fact > .hbc-fact-hd h3{margin:0;display:inline;font-size:15px;font-weight:700;letter-spacing:-.03em;font-family:inherit;color:inherit;}
 .contents_div .hbc-fact > .hbc-fact-bd{padding:24px 22px;}
 .contents_div .hbc-fact .hbc-note{
   display:table;margin:16px auto 0;font-size:12.5px;color:var(--hbc-tx2);line-height:1.6;text-align:center;
@@ -396,6 +395,7 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
 .contents_div .hbc-stat .hbc-cap{display:block;margin:12px 0 0;font-size:14px;color:var(--hbc-tx2);font-weight:600;}
 
 /* 표 */
+.contents_div .hbc-sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
 .contents_div .hbc-tb{width:100%;margin:18px 0 0;}
 .contents_div .hbc-tb th,
 .contents_div .hbc-tb td{border:1px solid var(--hbc-line);padding:11px 10px;text-align:center;}
@@ -679,7 +679,7 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
     border-radius:2.4px;
   }
   /* FACT 제목: 모바일에서 자간 축소(한 줄 유지) */
-  .contents_div .hbc-fact > .hbc-fact-hd b{letter-spacing:-.07em;}
+  .contents_div .hbc-fact > .hbc-fact-hd h3{letter-spacing:-.07em;}
   .contents_div .hbc-fact{margin-bottom:19px;}   /* 카드~본문 간격 4px 축소 */
   .contents_div .hbc-fact > .hbc-fact-bd{padding:20px 16px;}
   /* 포인트 목록: 위·아래 여백 시각적으로 동일하게 */
@@ -739,7 +739,7 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
          srcset="img/히어로배경.webp 1600w"
          sizes="(max-width:800px) 100vw, 800px"
          width="1600" height="660"
-         alt="호남권 반도체 첨단 국가산단 조성 예정지 일대 야경"
+         alt="호남권 반도체 첨단 국가산단이 들어설 전남광주통합특별시 조성 예정지 일대 야경"
          fetchpriority="high" loading="eager" decoding="async">
   </div>
 
@@ -775,12 +775,13 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
       <p>많은 분들이 전남광주통합특별시가 반도체 팹을 짓기에는 전력이 부족하다고 생각하시겠지만, 다행히도(?) 전남광주통합특별시는 <strong>전력이 남는 도시</strong>랍니다.</p>
 
       <div class="hbc-fact hbc-rev">
-        <div class="hbc-fact-hd"><i>FACT 01</i><b>전력자급률</b></div>
+        <div class="hbc-fact-hd"><i>FACT 01</i><h3>전력자급률</h3></div>
         <div class="hbc-fact-bd">
           <p class="hbc-stat"><span class="hbc-n">170<u>%</u></span><span class="hbc-cap">기업이 요구한 필요 전력 6.3GW</span></p>
           <table class="hbc-tb">
-            <tr><th>전체 발전량</th><th>소비량</th><th>여유전력</th></tr>
-            <tr><td>72.6TWh</td><td>42.7TWh</td><td class="hbc-hi">30TWh</td></tr>
+            <caption class="hbc-sr">전남광주통합특별시 연간 전력 수급 현황</caption>
+            <thead><tr><th scope="col">전체 발전량</th><th scope="col">소비량</th><th scope="col">여유전력</th></tr></thead>
+            <tbody><tr><td>72.6TWh</td><td>42.7TWh</td><td class="hbc-hi">30TWh</td></tr></tbody>
           </table>
           <p class="hbc-note">여유전력 30TWh는 울산광역시 사용량과 동일 수준</p>
         </div>
@@ -789,7 +790,7 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
       <p>전남광주통합특별시의 전력자급률은 <strong>170%</strong>예요. 쉽게 말하면 지역에서 쓰는 양보다 더 많은 전기를 만들어 내는 ‘전력흑자’ 지역이라는 뜻!</p>
 
       <div class="hbc-fact hbc-rev">
-        <div class="hbc-fact-hd"><i>FACT 02</i><b>RE100 달성으로 미래 무역장벽 대비</b></div>
+        <div class="hbc-fact-hd"><i>FACT 02</i><h3>RE100 달성으로 미래 무역장벽 대비</h3></div>
         <div class="hbc-fact-bd">
           <div class="hbc-donuts">
             <div class="hbc-donut hbc-donut--n">
@@ -834,7 +835,10 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
 
   <!-- ══ 소문 02 · 용수 ══ -->
   <section class="hbc-sec hbc-sec--e2" id="hbc-sec2">
-    <div class="hbc-banner hbc-rev" role="img" aria-label="용수 공급 시설"></div>
+    <div class="hbc-banner hbc-rev">
+      <img src="img/섹션2.webp" width="1600" height="400" alt="호남권 반도체 첨단 국가산단에 일일 106만 톤을 공급할 호남권 댐 용수 공급 시설"
+           loading="lazy" decoding="async">
+    </div>
     <div class="hbc-stitle">
       <span class="hbc-tag">소문 02</span>
       <h2>반도체 팹을 위한 <em>안정적 용수</em> 확보</h2>
@@ -853,7 +857,7 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
       <p class="hbc-lead">반도체는 물을 많이 사용하는 산업이기 때문에 용수를 걱정하는 건 당연해요. 그래서 대책도 꼼꼼하게 마련했습니다.</p>
 
       <div class="hbc-fact hbc-rev">
-        <div class="hbc-fact-hd"><i>FACT 01</i><b>일일 용수 확보량</b></div>
+        <div class="hbc-fact-hd"><i>FACT 01</i><h3>일일 용수 확보량</h3></div>
         <div class="hbc-fact-bd">
           <div class="hbc-bars">
             <div class="hbc-r"><div class="hbc-blb"><span>기업 수요</span><b>65<small>만 톤</small></b></div><div class="hbc-tk"><div class="hbc-fl" style="width:61%"></div></div></div>
@@ -872,7 +876,7 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
       하나의 댐이 아니라 호남권의 여러 댐의 여유 물량을 모으고, 전환 가능한 물량을 재분배하고, 광주 하수처리장 재이용수까지 예비로 확보해 안정적으로 용수를 확보할 계획이죠.</p>
 
       <div class="hbc-fact hbc-rev">
-        <div class="hbc-fact-hd"><i>FACT 02</i><b>절대 안정망</b></div>
+        <div class="hbc-fact-hd"><i>FACT 02</i><h3>절대 안정망</h3></div>
         <div class="hbc-fact-bd">
           <ul class="hbc-pts">
             <li><em>01</em><span>공급관로 <b>이중화</b><i class="hbc-dash"> — </i><br class="hbc-brm">한 경로에 문제가 생겨도 공급이 끊기지 않습니다</span></li>
@@ -889,7 +893,10 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
 
   <!-- ══ 소문 03 · 부지 ══ -->
   <section class="hbc-sec hbc-sec--e3" id="hbc-sec3">
-    <div class="hbc-banner hbc-rev" role="img" aria-label="국가산단 조성 예정 부지"></div>
+    <div class="hbc-banner hbc-rev">
+      <img src="img/섹션3.webp" width="1600" height="400" alt="호남권 반도체 첨단 국가산단 조성 예정지인 광주 군공항 부지 250만 평 전경"
+           loading="lazy" decoding="async">
+    </div>
     <div class="hbc-stitle">
       <span class="hbc-tag">소문 03</span>
       <h2>반도체 팹을 위한 <em>대체불가 부지</em></h2>
@@ -907,7 +914,7 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
       <p class="hbc-lead">현재 호남권 반도체 첨단 국가산단의 후보지로 광주 군공항 부지 일원이 공식 지정되었어요.</p>
 
       <div class="hbc-fact hbc-rev">
-        <div class="hbc-fact-hd"><i>FACT 01</i><b>‘속도전’ 가능한 부지</b></div>
+        <div class="hbc-fact-hd"><i>FACT 01</i><h3>‘속도전’ 가능한 부지</h3></div>
         <div class="hbc-fact-bd">
           <p class="hbc-stat"><span class="hbc-n">250<u>만 평</u></span><span class="hbc-cap">평탄화 및 보상이 불필요한 대규모 부지</span></p>
         </div>
@@ -918,7 +925,7 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
       <p>가장 큰 강점은 대부분이 국유지라 대규모 토지보상이나 수용 절차에 걸리는 시간을 크게 줄일 수 있고, 또 부지 특성상 이미 평탄화 작업까지 끝나 있기 때문에 바로 공사에 들어갈 수 있어요.</p>
 
       <div class="hbc-fact hbc-rev">
-        <div class="hbc-fact-hd"><i>FACT 02</i><b>최상의 교통·물류 인프라</b></div>
+        <div class="hbc-fact-hd"><i>FACT 02</i><h3>최상의 교통·물류 인프라</h3></div>
         <div class="hbc-fact-bd">
           <ul class="hbc-pts">
             <li><em>01</em><span>KTX·SRT 및 <b>도시철도</b> 근접</span></li>
@@ -931,7 +938,7 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
       <p>또 광주 군공항 부지는 위치도 좋아요. KTX, 국제공항과 가깝고 도심 접근성도 우수하죠.</p>
 
       <div class="hbc-fact hbc-rev">
-        <div class="hbc-fact-hd"><i>FACT 03</i><b>재해 안전성</b></div>
+        <div class="hbc-fact-hd"><i>FACT 03</i><h3>재해 안전성</h3></div>
         <div class="hbc-fact-bd">
           <p class="hbc-stat"><span class="hbc-n">0<u>건</u></span><span class="hbc-cap">최근 20여 년간 규모 4.0 이상 지진 발생</span></p>
         </div>
@@ -943,7 +950,10 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
 
   <!-- ══ 소문 04 · 인재 ══ -->
   <section class="hbc-sec hbc-sec--e4" id="hbc-sec4">
-    <div class="hbc-banner hbc-rev" role="img" aria-label="반도체 생산 현장의 인력"></div>
+    <div class="hbc-banner hbc-rev">
+      <img src="img/섹션4.webp" width="1600" height="400" alt="반도체 팹 클린룸에서 근무하는 전문 인력 — 호남권 양성 인력 2만 5천여 명"
+           loading="lazy" decoding="async">
+    </div>
     <div class="hbc-stitle">
       <span class="hbc-tag">소문 04</span>
       <h2>미래를 책임질 <br class="hbc-brm"><em>2만 5천여 명</em>의 반도체 인재</h2>
@@ -963,7 +973,7 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
       <p class="hbc-lead">전남광주통합특별시는 단순히 사람을 불러오는 것이 아니라 ‘지역에서 직접 전문 인재를 키워내는 선순환 시스템’을 목표로 해요.</p>
 
       <div class="hbc-fact hbc-rev">
-        <div class="hbc-fact-hd"><i>FACT 01</i><b>호남권 양성 인력</b></div>
+        <div class="hbc-fact-hd"><i>FACT 01</i><h3>호남권 양성 인력</h3></div>
         <div class="hbc-fact-bd">
           <div class="hbc-bars">
             <div class="hbc-r"><div class="hbc-blb"><span>현장 필요 인력</span><b>23,000<small>명</small></b></div><div class="hbc-tk"><div class="hbc-fl" style="width:92%"></div></div></div>
@@ -977,7 +987,7 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
       우선, 전남대를 거점으로 한 호남권 반도체공동연구소를 중심으로 지역 주요 대학과 연구기관, 마이스터고가 든든하게 손을 잡습니다. 맞춤형 교육을 통해 <strong>연간 2,000명 규모</strong>의 실무형 반도체 전문 인력을 양성할 계획이에요.</p>
 
       <div class="hbc-fact hbc-rev">
-        <div class="hbc-fact-hd"><i>FACT 02</i><b>지역 밀착형 교육 생태계</b></div>
+        <div class="hbc-fact-hd"><i>FACT 02</i><h3>지역 밀착형 교육 생태계</h3></div>
         <div class="hbc-fact-bd hbc-step">
           <dl class="hbc-tier">
             <div><dt>주요 대학</dt><dd>전남대, GIST,<br>조선대, 순천대 등</dd></div>
@@ -1050,14 +1060,108 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
       <li>#반도체클러스터</li>
       <li>#전남광주통합특별시</li>
       <li>#국가첨단전략산업</li>
-      <li>#전력</li>
-      <li>#용수</li>
-      <li>#부지</li>
+      <li>#전력자급률</li>
+      <li>#용수확보</li>
+      <li>#군공항부지</li>
       <li>#인재양성</li>
       <li>#팩트체크</li>
     </ul>
   </footer>
 
+
+<!-- 구조화 데이터: 검색결과에 FAQ·기사 정보가 노출되도록 함 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "호남권 반도체 첨단 국가산단, 궁금증 풀러 왔습니다",
+      "description": "전력·용수·부지·인재. 호남권 반도체 첨단 국가산단에 대해 가장 많이 물어보신 네 가지 궁금증을 팩트로 확인했습니다.",
+      "articleSection": "팩트체크",
+      "inLanguage": "ko-KR",
+      "keywords": "호남권 반도체, 첨단국가산단, 반도체 클러스터, 전남광주통합특별시, 전력자급률, 용수확보, 군공항부지, 인재양성",
+      "image": [
+        "img/히어로배경.webp"
+      ],
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "모두의 전남광주"
+      },
+      "publisher": {
+        "@type": "GovernmentOrganization",
+        "name": "전남광주통합특별시"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://news.jeonnam-gwangju.go.kr/gallery.es?mid=a50101000000&bid=0009&act=view&list_no=6736"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "inLanguage": "ko-KR",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "반도체 공장은 전기를 엄청 쓴다는데, 전남광주통합특별시가 감당할 수 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "전남광주통합특별시의 전력자급률은 170%로, 지역에서 쓰는 양보다 더 많은 전기를 생산하는 ‘전력흑자’ 지역입니다. 전체 발전량 72.6TWh, 소비량 42.7TWh로 여유전력이 30TWh에 달하며, 이는 울산광역시 전체 사용량과 같은 수준입니다. 기업이 요구한 필요 전력은 6.3GW입니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "반도체 팹 때문에 가정에서 쓸 전기가 부족해지지 않나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "반도체 팹의 전기는 별도의 전용 전력망과 전력 공급 계약을 통해 공급되기 때문에, 가정에서 쓰는 전기가 부족해질 일은 없습니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "반도체 팹에 필요한 용수는 충분히 확보되나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "기업이 예상한 필요 용수량은 하루 65만 톤이며, 전남광주통합특별시는 이보다 많은 일일 106만 톤을 확보할 예정입니다. 호남권 여러 댐의 여유 물량을 모으고, 전환 가능한 물량을 재분배하며, 광주 하수처리장 재이용수까지 예비로 확보합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "반도체 팹 때문에 생활용수나 농업용수가 부족해지지 않나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "시민들이 쓰는 생활용수와 공장에서 쓰는 공업용수는 공급 경로가 아예 다릅니다. 또한 공급관로를 이중화하고 상호 연결 환상망을 구축해 가뭄 등 어떤 상황에도 대비합니다. 공장에서 나온 물도 최첨단 정수시설을 통해 정화 후 배출합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "광주 군공항 부지에 대규모 반도체 공장을 지을 수 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "호남권 반도체 첨단 국가산단의 후보지로 광주 군공항 부지 일원이 공식 지정되었습니다. 부지는 약 250만 평으로 팹 여러 기와 협력업체, 연구시설까지 함께 들어설 수 있는 규모입니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "공항 부지에 짓는 거면 시간이 오래 걸리지 않나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "대부분이 국유지라 대규모 토지보상이나 수용 절차에 걸리는 시간을 크게 줄일 수 있고, 부지 특성상 이미 평탄화 작업이 끝나 있어 바로 공사에 들어갈 수 있습니다. 또한 최근 20여 년간 규모 4.0 이상의 지진이 한 건도 발생하지 않은 재해 안전 지역입니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "지역에서 반도체 전문 인력을 구할 수 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "2027년부터 2030년까지 전남대·GIST 등 반도체 관련 학과에서 양성되는 호남권 인력은 25,082명으로, 현장에 필요한 인력 23,000명을 웃돕니다. 직업계고 26개교를 포함한 지역 밀착형 교육 생태계를 통해 지역에서 직접 전문 인재를 키워내는 선순환 시스템을 목표로 하고 있습니다."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 </div><!-- /.hbc-page -->
 
 <script>
