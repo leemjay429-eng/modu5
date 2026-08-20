@@ -27,7 +27,7 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
 
 <!-- LCP : 히어로 이미지·상단 폰트를 CSS 파싱 전에 미리 내려받게 함
      (이미지 파일명을 바꾸면 아래 preload href도 함께 수정) -->
-<link rel="preload" as="image" href="img/히어로배경.webp" fetchpriority="high">
+<link rel="preload" as="image" href="img/hero-bg.webp" fetchpriority="high">
 <link rel="preload" as="font" type="font/woff2" crossorigin
       href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil4Medium.woff2">
 <link rel="preload" as="font" type="font/woff2" crossorigin
@@ -83,9 +83,9 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
   --hbc-head:'Daeojamjil',var(--hbc-sans);
 
   /* 에너지 아이콘 — 파일로 교체 시 이 세 줄만 수정 */
-  --hbc-ico-nuclear:url("img/원자력.svg");
-  --hbc-ico-fire:url("img/화력.svg");
-  --hbc-ico-renew:url("img/친환경.svg");
+  --hbc-ico-nuclear:url("img/ico-nuclear.webp");
+  --hbc-ico-fire:url("img/ico-thermal.webp");
+  --hbc-ico-renew:url("img/ico-renewable.webp");
 
   max-width:var(--hbc-w);
   margin-left:auto;
@@ -196,7 +196,7 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
 }
 .contents_div .hbc-sec--cta{                                   /* CTA */
   background:var(--hbc-bg);
-  padding:70px 50px;
+  padding:55px 50px 45px;
 }
 
 /* ══════════ 히어로 ══════════ */
@@ -529,6 +529,7 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
 
 /* ══════════ CTA ══════════ */
 .contents_div .hbc-sec--cta{text-align:center;}
+.contents_div .hbc-sec--cta .hbc-stitle{margin-bottom:0;}   /* 하위 요소 없음 — 하단 여백 제거 */
 .contents_div .hbc-box{
   display:block;
   background:linear-gradient(102deg,#0F55B0 0%,#0A489D 55%,#003987 100%);
@@ -565,6 +566,71 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
   padding:7px 11px 6px;
 }
 
+/* ══════════ 소식 모음집 ══════════ */
+.contents_div .hbc-sec--news{
+  background:var(--hbc-gray);
+  padding:70px 50px;
+}
+.contents_div .hbc-nlist{display:grid;gap:8px;}
+
+/* 기사 1건 = 카드 한 장 (번호 · 제목 · 화살표 가로 정렬) */
+.contents_div .hbc-na,
+.contents_div .hbc-ncard{
+  background:#fff;border:1px solid var(--hbc-line);border-radius:10px;
+  padding:16px 18px;
+}
+.contents_div .hbc-na,
+.contents_div .hbc-nhd{display:flex;align-items:flex-start;gap:13px;}
+.contents_div .hbc-na{transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease;}
+.contents_div .hbc-nnum{
+  flex:0 0 auto;min-width:20px;
+  font-family:var(--hbc-util);font-size:13px;font-weight:800;
+  letter-spacing:.02em;line-height:1.5;color:var(--hbc-blue-md);
+}
+.contents_div .hbc-nt{
+  flex:1 1 auto;min-width:0;
+  font-size:15.5px;font-weight:700;letter-spacing:-.035em;line-height:1.5;color:var(--hbc-ink);
+}
+.contents_div .hbc-nt em{
+  display:block;margin-top:5px;
+  font-style:normal;font-size:13px;font-weight:400;letter-spacing:-.03em;line-height:1.55;
+  color:var(--hbc-tx2);
+}
+.contents_div .hbc-nar{
+  flex:0 0 auto;align-self:center;
+  font-family:var(--hbc-util);font-style:normal;font-size:15px;font-weight:800;line-height:1.5;
+  color:var(--hbc-blue-sf);
+  transition:transform .2s ease,color .2s ease;
+}
+@media (hover:hover) and (pointer:fine){
+  .contents_div .hbc-na:hover{
+    border-color:var(--hbc-blue-md);
+    box-shadow:0 8px 20px rgba(10,72,157,.10);
+    transform:translateY(-2px);
+  }
+  .contents_div .hbc-na:hover .hbc-nar{color:var(--hbc-blue);transform:translateX(4px);}
+}
+.contents_div .hbc-na:active{border-color:var(--hbc-blue-md);}
+.contents_div .hbc-na:focus-visible{outline:3px solid var(--hbc-blue);outline-offset:3px;}
+
+/* 카드뉴스 4편 묶음 */
+.contents_div .hbc-eps{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:6px;
+  margin:13px 0 0 33px;
+}
+.contents_div .hbc-eps a{
+  display:flex;align-items:center;justify-content:center;
+  min-height:38px;border-radius:7px;
+  background:var(--hbc-blue);color:#fff;
+  font-size:12.5px;font-weight:700;letter-spacing:-.02em;line-height:1;
+  transition:background .2s ease,color .2s ease;
+}
+@media (hover:hover) and (pointer:fine){
+  .contents_div .hbc-eps a:hover{background:var(--hbc-blue-lt);color:var(--hbc-blue);}
+}
+.contents_div .hbc-eps a:active{background:var(--hbc-blue-lt);color:var(--hbc-blue);}
+.contents_div .hbc-eps a:focus-visible{outline:2px solid var(--hbc-blue);outline-offset:2px;}
+
 /* ══════════ 등장 모션 ══════════ */
 .contents_div .hbc-rev{opacity:0;transform:translateY(15px);transition:opacity .6s ease,transform .6s ease;}
 .contents_div .hbc-rev.is-in{opacity:1;transform:none;}
@@ -581,6 +647,7 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
   .contents_div .hbc-sec--e1,
   .contents_div .hbc-sec--blue,
   .contents_div .hbc-sec--cta{padding:40px 15px 45px;}
+  .contents_div .hbc-sec--cta{padding-top:34px;padding-bottom:29px;}
   /* 상단 이미지(배너)가 있는 섹션 : 위 70 유지 · 아래만 45 */
   .contents_div .hbc-sec--e2,
   .contents_div .hbc-sec--e3,
@@ -701,6 +768,19 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
   .contents_div .hbc-box{padding:28px 18px;}
   .contents_div .hbc-box .hbc-lg{font-size:18px;gap:8px;}
   .contents_div .hbc-box .hbc-lg i{font-size:17px;}
+  /* 소식 모음집 */
+  .contents_div .hbc-sec--news{padding:40px 15px 45px;}
+  .contents_div .hbc-nlist{gap:7px;}
+  .contents_div .hbc-na,
+  .contents_div .hbc-ncard{padding:13px 14px;border-radius:9px;}
+  .contents_div .hbc-na,
+  .contents_div .hbc-nhd{gap:10px;}
+  .contents_div .hbc-nnum{font-size:11.5px;min-width:17px;}
+  .contents_div .hbc-nt{font-size:13.5px;letter-spacing:-.045em;}
+  .contents_div .hbc-nt em{font-size:11.5px;margin-top:4px;line-height:1.5;}
+  .contents_div .hbc-nar{font-size:13px;align-self:center;}   /* 카드 높이 기준 세로 중앙 */
+  .contents_div .hbc-eps{gap:5px;margin:11px 0 0 27px;}
+  .contents_div .hbc-eps a{min-height:34px;font-size:11.5px;border-radius:6px;}
   /* 모바일 본문: 유동 폰트(최소 13 · 385px에서 14 · 최대 16) + 행간 축소 */
   .contents_div .hbc-body p{
     font-size:clamp(13px, calc(10.98px + 0.784vw), 16px);
@@ -735,8 +815,8 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
     <p class="hbc-hero-sub">전력 · 용수 · 부지 · 인재<br>가장 많이 물어보신 네 가지를 팩트로 확인했습니다</p>
   </header>
   <div class="hbc-hero-img">
-    <img src="img/히어로배경.webp"
-         srcset="img/히어로배경.webp 1600w"
+    <img src="img/hero-bg.webp"
+         srcset="img/hero-bg.webp 1600w"
          sizes="(max-width:800px) 100vw, 800px"
          width="1600" height="660"
          alt="호남권 반도체 첨단 국가산단이 들어설 전남광주통합특별시 조성 예정지 일대 야경"
@@ -777,7 +857,7 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
       <div class="hbc-fact hbc-rev">
         <div class="hbc-fact-hd"><i>FACT 01</i><h3>전력자급률</h3></div>
         <div class="hbc-fact-bd">
-          <p class="hbc-stat"><span class="hbc-n">170<u>%</u></span><span class="hbc-cap">기업이 요구한 필요 전력 6.3GW</span></p>
+          <p class="hbc-stat"><span class="hbc-n">170<u>%</u></span><span class="hbc-cap">기업이 요구한 필요 전력 1단계&nbsp;3.1GW (최종&nbsp;6.3GW)</span></p>
           <table class="hbc-tb">
             <caption class="hbc-sr">전남광주통합특별시 연간 전력 수급 현황</caption>
             <thead><tr><th scope="col">전체 발전량</th><th scope="col">소비량</th><th scope="col">여유전력</th></tr></thead>
@@ -828,15 +908,16 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
         </div>
       </div>
 
-      <p>또 반도체를 만들기 위해서 필요한 RE100 즉 100% 재생에너지를 목표로 하는 글로벌 캠페인을 실현할 수 있는 지역이기도 해요. 원자력, 화력, 재생에너지까지 모두 생산이 가능하니까요.
-      또 반도체 팹의 전기는 별도의 전용 전력망과 전력 공급 계약을 통해 들어오기 때문에 <strong>집에서 쓰는 전기가 부족할 일은 없답니다.</strong></p>
+      <p>또 반도체를 만들기 위해서 필요한 RE100 즉 100% 재생에너지를 목표로 하는 글로벌 캠페인을 실현할 수 있는 지역이기도 해요.</p>
+      <p>기업이 요구한 전력은 1단계 3.1GW, 최종 6.3GW인데요. 1단계 물량은 충분히 감당할 수 있습니다. 최종 6.3GW까지는 대용량 에너지저장장치(BESS)로 재생에너지를 모아 쓰고, LNG 발전을 더해 팹 가동 일정에 맞춰 단계적으로 채워갈 계획이에요.</p>
+      <p>또 반도체 팹의 전기는 별도의 전용 전력망과 전력 공급 계약을 통해 들어오기 때문에 <strong>집에서 쓰는 전기가 부족할 일은 없답니다.</strong></p>
     </div>
   </section>
 
   <!-- ══ 소문 02 · 용수 ══ -->
   <section class="hbc-sec hbc-sec--e2" id="hbc-sec2">
     <div class="hbc-banner hbc-rev">
-      <img src="img/섹션2.webp" width="1600" height="400" alt="호남권 반도체 첨단 국가산단에 일일 106만 톤을 공급할 호남권 댐 용수 공급 시설"
+      <img src="img/section2.webp" width="1600" height="400" alt="호남권 반도체 첨단 국가산단에 일일 106만 톤을 공급할 호남권 댐 용수 공급 시설"
            loading="lazy" decoding="async">
     </div>
     <div class="hbc-stitle">
@@ -894,7 +975,7 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
   <!-- ══ 소문 03 · 부지 ══ -->
   <section class="hbc-sec hbc-sec--e3" id="hbc-sec3">
     <div class="hbc-banner hbc-rev">
-      <img src="img/섹션3.webp" width="1600" height="400" alt="호남권 반도체 첨단 국가산단 조성 예정지인 광주 군공항 부지 250만 평 전경"
+      <img src="img/section3.webp" width="1600" height="400" alt="호남권 반도체 첨단 국가산단 조성 예정지인 광주 군공항 부지 250만 평 전경"
            loading="lazy" decoding="async">
     </div>
     <div class="hbc-stitle">
@@ -951,7 +1032,7 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
   <!-- ══ 소문 04 · 인재 ══ -->
   <section class="hbc-sec hbc-sec--e4" id="hbc-sec4">
     <div class="hbc-banner hbc-rev">
-      <img src="img/섹션4.webp" width="1600" height="400" alt="반도체 팹 클린룸에서 근무하는 전문 인력 — 호남권 양성 인력 2만 5천여 명"
+      <img src="img/section4.webp" width="1600" height="400" alt="반도체 팹 클린룸에서 근무하는 전문 인력 — 호남권 양성 인력 2만 5천여 명"
            loading="lazy" decoding="async">
     </div>
     <div class="hbc-stitle">
@@ -1034,16 +1115,86 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
     </div>
   </section>
 
+  <!-- ══ 소식 모음집 ══ -->
+  <section class="hbc-sec hbc-sec--news" id="hbc-news">
+    <div class="hbc-stitle">
+      <span class="hbc-tag">소식 모음</span>
+      <h2>반도체 <em>소식 모음집</em></h2>
+      <p>관련 보도자료와 카드뉴스를 한곳에 모았습니다.</p>
+    </div>
+    <ul class="hbc-nlist hbc-rev">
+      <li>
+        <a class="hbc-na" href="https://news.jeonnam-gwangju.go.kr/gallery.es?mid=a50101000000&amp;bid=0009&amp;act=view&amp;list_no=6736" target="_blank" rel="noopener">
+          <span class="hbc-nnum">01</span>
+          <span class="hbc-nt">전남광주통합특별시가 우리나라 반도체 산업의 중심지가 된다고?</span>
+          <i class="hbc-nar" aria-hidden="true">→</i>
+        </a>
+      </li>
+      <li>
+        <a class="hbc-na" href="https://blog.naver.com/jeonnam-gwangju-city/224341566435" target="_blank" rel="noopener">
+          <span class="hbc-nnum">02</span>
+          <span class="hbc-nt">호남권 반도체 클러스터 조성, 광주 군공항 부지로 최종 확정!</span>
+          <i class="hbc-nar" aria-hidden="true">→</i>
+        </a>
+      </li>
+      <li>
+        <a class="hbc-na" href="https://www.jeonnam-gwangju.go.kr/boardView.do?pageId=jngj22&amp;boardId=JG_0000000003&amp;seq=404&amp;movePage=4&amp;recordCnt=10&amp;searchTy=TM" target="_blank" rel="noopener">
+          <span class="hbc-nnum">03</span>
+          <span class="hbc-nt">(보도자료) ‘호남권 반도체 메가프로젝트’ 전력 적기 공급…<em>전남광주특별시·정부·한전·삼성·SK, 원팀 뭉쳤다</em></span>
+          <i class="hbc-nar" aria-hidden="true">→</i>
+        </a>
+      </li>
+      <li>
+        <a class="hbc-na" href="https://www.jeonnam-gwangju.go.kr/boardView.do?pageId=jngj22&amp;boardId=JG_0000000003&amp;seq=366&amp;movePage=7&amp;recordCnt=10&amp;searchTy=TM" target="_blank" rel="noopener">
+          <span class="hbc-nnum">04</span>
+          <span class="hbc-nt">전남광주특별시, 해남서 국내 최대 400MW 태양광발전사업 착공</span>
+          <i class="hbc-nar" aria-hidden="true">→</i>
+        </a>
+      </li>
+      <li>
+        <a class="hbc-na" href="https://www.jeonnam-gwangju.go.kr/boardView.do?pageId=jngj22&amp;boardId=JG_0000000003&amp;seq=343&amp;movePage=10&amp;recordCnt=10&amp;searchTy=TM" target="_blank" rel="noopener">
+          <span class="hbc-nnum">05</span>
+          <span class="hbc-nt">전남광주통합특별시, ‘반도체 클러스터 지정’ 전방위 총력전<em>민형배 특별시장 주재 긴급 점검회의…관계기관과 긴밀 협력</em></span>
+          <i class="hbc-nar" aria-hidden="true">→</i>
+        </a>
+      </li>
+      <li>
+        <a class="hbc-na" href="https://www.jeonnam-gwangju.go.kr/boardView.do?pageId=jngj22&amp;boardId=JG_0000000003&amp;seq=291&amp;movePage=15&amp;recordCnt=10&amp;searchTy=TM" target="_blank" rel="noopener">
+          <span class="hbc-nnum">06</span>
+          <span class="hbc-nt">전남광주시-대학-교육부-기업, 반도체 인재양성 협력회의 개최…<em>지·산·학 협력, 지속가능 반도체 실무·핵심R&amp;D 인력 연계 육성</em></span>
+          <i class="hbc-nar" aria-hidden="true">→</i>
+        </a>
+      </li>
+      <li>
+        <a class="hbc-na" href="https://www.jeonnam-gwangju.go.kr/boardView.do?pageId=jngj22&amp;boardId=JG_0000000003&amp;seq=268&amp;movePage=17&amp;recordCnt=10&amp;searchTy=TM" target="_blank" rel="noopener">
+          <span class="hbc-nnum">07</span>
+          <span class="hbc-nt">광주 군공항 부지 ‘호남권 반도체 첨단 국가산단’ 후보지 지정<em>민형배 시장, “320만 특별시민과 환영…미래첨단산업 중심 도약”</em></span>
+          <i class="hbc-nar" aria-hidden="true">→</i>
+        </a>
+      </li>
+      <li>
+        <div class="hbc-ncard">
+          <div class="hbc-nhd">
+            <span class="hbc-nnum">08</span>
+            <span class="hbc-nt">(카드뉴스) 반도체 최적지 왜 전남광주인가<em>시리즈 총 4편</em></span>
+          </div>
+          <div class="hbc-eps">
+            <a href="https://www.jeonnam-gwangju.go.kr/boardView.do?pageId=jngj38&amp;boardId=JG_0000000004&amp;seq=10&amp;movePage=2&amp;recordCnt=8&amp;searchTy=TM" target="_blank" rel="noopener">1편</a>
+            <a href="https://www.jeonnam-gwangju.go.kr/boardView.do?pageId=jngj38&amp;boardId=JG_0000000004&amp;seq=13&amp;movePage=2&amp;recordCnt=8&amp;searchTy=TM" target="_blank" rel="noopener">2편</a>
+            <a href="https://www.jeonnam-gwangju.go.kr/boardView.do?pageId=jngj38&amp;boardId=JG_0000000004&amp;seq=16&amp;movePage=2&amp;recordCnt=8&amp;searchTy=TM" target="_blank" rel="noopener">3편</a>
+            <a href="https://www.jeonnam-gwangju.go.kr/boardView.do?pageId=jngj38&amp;boardId=JG_0000000004&amp;seq=18&amp;movePage=1&amp;recordCnt=8" target="_blank" rel="noopener">4편</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </section>
+
   <!-- ══ CTA ══ -->
   <section class="hbc-sec hbc-sec--cta">
     <div class="hbc-stitle">
-      <span class="hbc-tag">더 알아보기</span>
       <h2>앞으로도 궁금증과 우려를<br><em>하나씩 풀어드릴게요</em></h2>
       <p>호남권 반도체 첨단 국가산단의 소식을 알기 쉽게 전해드리겠습니다.</p>
     </div>
-    <a class="hbc-box" href="https://news.jeonnam-gwangju.go.kr/gallery.es?mid=a50101000000&amp;bid=0009&amp;act=view&amp;list_no=6736" target="_blank" rel="noopener">
-      <span class="hbc-lg">호남권 반도체 첨단 산단 자세히 보기 <i>→</i></span>
-    </a>
   </section>
 
   <footer class="hbc-foot">
@@ -1075,7 +1226,7 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
       "inLanguage": "ko-KR",
       "keywords": "호남권 반도체, 첨단국가산단, 반도체 클러스터, 전남광주통합특별시, 전력자급률, 용수확보, 군공항부지, 인재양성",
       "image": [
-        "img/히어로배경.webp"
+        "img/hero-bg.webp"
       ],
       "isPartOf": {
         "@type": "WebSite",
@@ -1099,7 +1250,7 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
           "name": "반도체 공장은 전기를 엄청 쓴다는데, 전남광주통합특별시가 감당할 수 있나요?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "전남광주통합특별시의 전력자급률은 170%로, 지역에서 쓰는 양보다 더 많은 전기를 생산하는 ‘전력흑자’ 지역입니다. 전체 발전량 72.6TWh, 소비량 42.7TWh로 여유전력이 30TWh에 달하며, 이는 울산광역시 전체 사용량과 같은 수준입니다. 기업이 요구한 필요 전력은 6.3GW입니다."
+            "text": "전남광주통합특별시의 전력자급률은 170%로, 지역에서 쓰는 양보다 더 많은 전기를 생산하는 ‘전력흑자’ 지역입니다. 전체 발전량 72.6TWh, 소비량 42.7TWh로 여유전력이 30TWh에 달하며, 이는 울산광역시 전체 사용량과 같은 수준입니다. 기업이 요구한 필요 전력은 1단계 3.1GW, 최종 6.3GW입니다."
           }
         },
         {
