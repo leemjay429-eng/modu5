@@ -7,26 +7,6 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
 }
 </script>
 
-<!-- 히어로 애니메이션 테스트 (로컬 file: · github.io 미리보기에서만 동작 — 실서버 CMS에서는 아무것도 하지 않음)
-     · 스크롤 테스트 공간은 본문의 jngj-test-spacer(TEST 주석 줄)가 담당
-     · 오른쪽 아래 '다시 재생' 버튼 : 히어로 애니메이션을 처음부터 다시 -->
-<script>
-if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
-  document.addEventListener('DOMContentLoaded',function(){
-    var root=document.querySelector('.contents_div'); if(!root) return;
-    var btn=document.createElement('button');
-    btn.type='button'; btn.textContent='히어로 다시 재생';
-    btn.setAttribute('style','position:fixed;right:12px;bottom:12px;z-index:9999;padding:10px 14px;border:0;border-radius:999px;background:#0B2A99;color:#fff;font:700 13px sans-serif;box-shadow:0 4px 12px rgba(0,0,0,.25);cursor:pointer');
-    btn.addEventListener('click',function(){
-      if(!root.classList.contains('is-bnf-hm-play')) return;
-      root.classList.remove('is-bnf-hm-play'); void root.offsetWidth; root.classList.add('is-bnf-hm-play');
-      root.dispatchEvent(new Event('bnf-hm-replay'));
-    });
-    document.body.appendChild(btn);
-  });
-}
-</script>
-
 <script>
   (function(){
     try{
@@ -1061,7 +1041,6 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
 })();
 </script>
 
-<!-- TEST: 확인 후 이 줄 삭제 --><div class="jngj-test-spacer" aria-hidden="true" style="height:900px;max-width:800px;margin:auto;display:grid;place-items:center;border:1px solid #cb9;background:linear-gradient(to top right,#0000 calc(50% - 1px),#cb9,#0000 calc(50% + 1px)),linear-gradient(to top left,#0000 calc(50% - 1px),#cb9,#0000 calc(50% + 1px)) #fffdef;font:700 16px sans-serif;color:#7E5E50"><b style="padding:10px 20px;background:#fffdef;border:1px solid #cb9;border-radius:99px">테스트 영역 · 아래로 스크롤 ↓</b></div>
 <article class="bnf-page" lang="ko">
 
   <header class="bnf-hero">
@@ -1203,7 +1182,7 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
       <li>#축사시설현대화사업</li>
       <li>#축사융자지원</li>
       <li>#축산농가</li>
-      <li>#자원봉사</li>
+      <li>#전남광주자원봉사</li>
       <li>#우수체험사례공모전</li>
       <li>#전남광주공모전</li>
       <li>#전남광주혜택</li>
@@ -1370,7 +1349,6 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
     clearTimeout(ringT); clearInterval(ring._iv); ring.classList.remove('is-ring');
     ringT = setTimeout(function(){ ringOnce(); ring._iv = setInterval(ringOnce, 4000); }, 2050);
   }
-  root.addEventListener('bnf-hm-replay', startRing);
   function tryPlay(){
     if(played || failed || !loaded || !inView) return;
     played = true;
