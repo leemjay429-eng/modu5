@@ -350,8 +350,6 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
 .contents_div .bnf-hm__pc{display:none;pointer-events:none}
 .contents_div .bnf-hm__memo{transform-origin:48.94% 18.5%}   /* 압정 위치 */
 /* 회전·확대 축 : Safari 대응으로 var() 대신 조각마다 직접 지정 (Safari가 var()로 받은 transform-origin을 무시하면 화면 가운데를 축으로 돌아 크게 흔들림) */
-.contents_div .bnf-hm__clk,
-.contents_div .bnf-hm__clk > .bnf-hm__in{transform-origin:47.31% 30.57%}
 .contents_div .bnf-hm__t2,
 .contents_div .bnf-hm__t2 > .bnf-hm__in{transform-origin:50.94% 46.48%}
 .contents_div .bnf-hm__t3,
@@ -367,7 +365,12 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
 
 /* 조각 영역 — inset(위 오른쪽 아래 왼쪽) / polygon : 원본 1600×1351 기준 */
 .contents_div .bnf-hm__t1a{--clip:inset(25.17% 55.75% 63.58% 30.94%)}                          /* 이번 주 */
-.contents_div .bnf-hm__clk{--clip:inset(24.8% 49.38% 64.47% 44.25%);--o:47.31% 30.57%}          /* 알람시계 */
+/* 알람시계 : 프레임 전체가 아니라 시계 크기의 작은 상자를 돌린다
+   (프레임 전체 크기 요소를 먼 축으로 돌리면 iOS Safari에서 반복 회차부터 축이 어긋나 좌우로 크게 휘둘림)
+   상자 = 원본 x 708~810 · y 335~480 / 이미지는 상자 기준으로 원본 위치에 맞춰 크게 깔고 clip-path로 시계만 남긴다 */
+.contents_div .bnf-hm__pc.bnf-hm__clk{inset:auto;left:44.25%;top:24.8%;width:6.375%;height:10.733%;transform-origin:48.04% 53.79%}
+.contents_div .bnf-hm__clk .bnf-hm__ring{position:absolute;inset:0;transform-origin:48.04% 53.79%}   /* 시계 중심(원본 757,413) */
+.contents_div .bnf-hm .bnf-hm__clk img{inset:auto;left:-694.12%;top:-231.03%;width:1568.63%;height:931.72%;clip-path:inset(24.8% 49.38% 64.47% 44.25%)}
 .contents_div .bnf-hm__t1b{--clip:inset(25.17% 31.25% 63.58% 50.63%)}                          /* 챙겨야 할 */
 .contents_div .bnf-hm__t2{--clip:polygon(26.88% 35.53%,75% 35.53%,75% 52.55%,26.88% 57.74%);--o:50.94% 46.48%}   /* 전남광주 */
 .contents_div .bnf-hm__t3{--clip:polygon(26.88% 57.74%,75% 52.55%,75% 73.28%,26.88% 73.28%);--o:52.5% 63.66%}    /* 소식! */
@@ -392,7 +395,7 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
 .contents_div.is-bnf-hm-play .bnf-hm__t1a{animation:bnfHmDrop .5s cubic-bezier(.22,.68,.36,1) 0.95s both}
 .contents_div.is-bnf-hm-play .bnf-hm__t1b{animation:bnfHmDrop .5s cubic-bezier(.22,.68,.36,1) 1.05s both}
 .contents_div.is-bnf-hm-play .bnf-hm__clk{animation:bnfHmPop .55s cubic-bezier(.34,1.7,.64,1) 1.1s both}
-.contents_div.is-bnf-hm-play .bnf-hm__clk .bnf-hm__in{animation:bnfHmRing 4s ease-in-out 2.05s infinite}
+.contents_div.is-bnf-hm-play .bnf-hm__clk .bnf-hm__ring{animation:bnfHmRing 4s ease-in-out 2.05s infinite}
 /* ④ 전남광주 · 소식! */
 .contents_div.is-bnf-hm-play .bnf-hm__t2{animation:bnfHmStamp .55s linear 1.55s both}
 .contents_div.is-bnf-hm-play .bnf-hm__t3{animation:bnfHmStamp .55s linear 1.8s both}
@@ -1071,7 +1074,7 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
              width="1600" height="1351" fetchpriority="high" loading="eager" decoding="async" alt="">
         <div class="bnf-hm__pc bnf-hm__t1a" aria-hidden="true"><div class="bnf-hm__in"><img data-ly="title" alt=""></div></div>
         <div class="bnf-hm__pc bnf-hm__t1b" aria-hidden="true"><div class="bnf-hm__in"><img data-ly="title" alt=""></div></div>
-        <div class="bnf-hm__pc bnf-hm__clk" aria-hidden="true"><div class="bnf-hm__in"><img data-ly="title" alt=""></div></div>
+        <div class="bnf-hm__pc bnf-hm__clk" aria-hidden="true"><div class="bnf-hm__ring"><img data-ly="title" alt=""></div></div>
         <div class="bnf-hm__pc bnf-hm__t2" aria-hidden="true"><div class="bnf-hm__in"><img data-ly="title" alt=""></div></div>
         <div class="bnf-hm__pc bnf-hm__t3" aria-hidden="true"><div class="bnf-hm__in"><img data-ly="title" alt=""></div></div>
         <img class="bnf-hm__deco" data-layer="deco"
