@@ -20,6 +20,7 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
     btn.addEventListener('click',function(){
       if(!root.classList.contains('is-bnf-hm-play')) return;
       root.classList.remove('is-bnf-hm-play'); void root.offsetWidth; root.classList.add('is-bnf-hm-play');
+      root.dispatchEvent(new Event('bnf-hm-replay'));
     });
     document.body.appendChild(btn);
   });
@@ -395,7 +396,9 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
 .contents_div.is-bnf-hm-play .bnf-hm__t1a{animation:bnfHmDrop .5s cubic-bezier(.22,.68,.36,1) 0.95s both}
 .contents_div.is-bnf-hm-play .bnf-hm__t1b{animation:bnfHmDrop .5s cubic-bezier(.22,.68,.36,1) 1.05s both}
 .contents_div.is-bnf-hm-play .bnf-hm__clk{animation:bnfHmPop .55s cubic-bezier(.34,1.7,.64,1) 1.1s both}
-.contents_div.is-bnf-hm-play .bnf-hm__clk .bnf-hm__ring{animation:bnfHmRing 4s ease-in-out 2.05s infinite}
+/* 따르릉 : CSS 무한 반복(infinite) 대신 스크립트가 4초마다 1회짜리를 새로 붙인다
+   (iOS Safari에서 infinite 회전이 2회차부터 2배로 커지는 문제 → 매번 '첫 회'로 재생되게) */
+.contents_div.is-bnf-hm-play .bnf-hm__clk .bnf-hm__ring.is-ring{animation:bnfHmRing .64s ease-in-out 1 both}
 /* ④ 전남광주 · 소식! */
 .contents_div.is-bnf-hm-play .bnf-hm__t2{animation:bnfHmStamp .55s linear 1.55s both}
 .contents_div.is-bnf-hm-play .bnf-hm__t3{animation:bnfHmStamp .55s linear 1.8s both}
@@ -426,14 +429,15 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
   to{opacity:1;transform:none}
 }
 @keyframes bnfHmRing{
-  0%,16%,100%{transform:none}
-  2%{transform:rotate(-14deg)}
-  4%{transform:rotate(12deg)}
-  6%{transform:rotate(-12deg)}
-  8%{transform:rotate(10deg)}
-  10%{transform:rotate(-7deg)}
-  12%{transform:rotate(4deg)}
+  0%,100%{transform:none}
+  12.5%{transform:rotate(-14deg)}
+  25%{transform:rotate(12deg)}
+  37.5%{transform:rotate(-12deg)}
+  50%{transform:rotate(10deg)}
+  62.5%{transform:rotate(-7deg)}
+  75%{transform:rotate(4deg)}
 }
+
 @keyframes bnfHmStamp{
   0%{opacity:0;transform:scale(1.4);animation-timing-function:cubic-bezier(.55,0,.9,.45)}   /* 1.4배까지만 : 원본 1600px 이상 확대 방지(모바일 3배 화면 375×3×1.4 ≈ 1575) */
   45%{opacity:1;transform:scale(.94)}
@@ -557,6 +561,7 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
 }
 @media (max-width:500px){ .contents_div .bnf-icon{--bnf-icon-m:1.1} }   /* 500 이하 : 아이콘 10% 크게 */
 @media (max-width:420px){ .contents_div .bnf-icon--trophy{--bnf-icon-dy:-10px} }   /* 420 이하 : 공모전 아이콘 10px 아래로 (트로피가 떠 보여서) */
+@media (max-width:420px){ .contents_div .bnf-icon--barn{--bnf-icon-dy:-7px} }   /* 420 이하 : 축산농가 아이콘 7px 아래로 */
 /* 아이콘별 보정 : --bnf-icon-k 웹 크기 배율 (모바일은 위의 면적 기준 규칙으로 통일) */
 .contents_div .bnf-icon img{display:block;width:100%;max-width:none;height:auto}
 /* 아이콘 그림자 : 투명 배경 모양을 따라가는 drop-shadow */
@@ -1133,7 +1138,7 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
 
   <article class="bnf-card is-biz" id="bnf-b2">
     <div class="bnf-card__head">
-      <figure class="bnf-icon bnf-icon--w85">
+      <figure class="bnf-icon bnf-icon--w85 bnf-icon--barn">
         <img data-name="축산농가" width="1090" height="865" alt="" loading="eager" decoding="async"
              src="img/축산농가.webp">
       </figure>
@@ -1354,10 +1359,22 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
   var imgs = [].slice.call(hm.querySelectorAll('img'));
   var left = imgs.length, loaded = false, inView = false, played = false, failed = false;
   function fail(){ if(played || failed) return; failed = true; root.classList.remove('is-bnf-hm'); }
+  /* 알람시계 따르릉 : 등장 후 2.05초에 첫 울림, 이후 4초마다 1회씩 새로 재생 (히어로가 화면 밖이면 건너뜀) */
+  var ring = hm.querySelector('.bnf-hm__ring'), ringT = null;
+  function ringOnce(){
+    if(!ring || root.classList.contains('is-bnf-hm-off')) return;
+    ring.classList.remove('is-ring'); void ring.offsetWidth; ring.classList.add('is-ring');
+  }
+  function startRing(){
+    if(!ring) return;
+    clearTimeout(ringT); clearInterval(ring._iv); ring.classList.remove('is-ring');
+    ringT = setTimeout(function(){ ringOnce(); ring._iv = setInterval(ringOnce, 4000); }, 2050);
+  }
+  root.addEventListener('bnf-hm-replay', startRing);
   function tryPlay(){
     if(played || failed || !loaded || !inView) return;
     played = true;
-    requestAnimationFrame(function(){ requestAnimationFrame(function(){ root.classList.add('is-bnf-hm-play'); }); });
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){ root.classList.add('is-bnf-hm-play'); startRing(); }); });
   }
   imgs.forEach(function(im){
     function ok(){ if(!im.naturalWidth){ fail(); return; } if(--left === 0){ loaded = true; tryPlay(); } }
