@@ -349,6 +349,21 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
 .contents_div .bnf-hm__in{clip-path:var(--clip,none)}
 .contents_div .bnf-hm__pc{display:none;pointer-events:none}
 .contents_div .bnf-hm__memo{transform-origin:48.94% 18.5%}   /* 압정 위치 */
+/* 회전·확대 축 : Safari 대응으로 var() 대신 조각마다 직접 지정 (Safari가 var()로 받은 transform-origin을 무시하면 화면 가운데를 축으로 돌아 크게 흔들림) */
+.contents_div .bnf-hm__clk,
+.contents_div .bnf-hm__clk > .bnf-hm__in{transform-origin:47.31% 30.57%}
+.contents_div .bnf-hm__t2,
+.contents_div .bnf-hm__t2 > .bnf-hm__in{transform-origin:50.94% 46.48%}
+.contents_div .bnf-hm__t3,
+.contents_div .bnf-hm__t3 > .bnf-hm__in{transform-origin:52.5% 63.66%}
+.contents_div .bnf-hm__b1,
+.contents_div .bnf-hm__b1 > .bnf-hm__in{transform-origin:20.63% 42.04%}
+.contents_div .bnf-hm__bus,
+.contents_div .bnf-hm__bus > .bnf-hm__in{transform-origin:14.38% 64.4%}
+.contents_div .bnf-hm__b2,
+.contents_div .bnf-hm__b2 > .bnf-hm__in{transform-origin:89.69% 69.43%}
+.contents_div .bnf-hm__barn,
+.contents_div .bnf-hm__barn > .bnf-hm__in{transform-origin:85% 89.93%}
 
 /* 조각 영역 — inset(위 오른쪽 아래 왼쪽) / polygon : 원본 1600×1351 기준 */
 .contents_div .bnf-hm__t1a{--clip:inset(25.17% 55.75% 63.58% 30.94%)}                          /* 이번 주 */
@@ -372,33 +387,34 @@ if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
 /* ① 달력 */
 .contents_div.is-bnf-hm-play .bnf-hm__bg{animation:bnfHmBg 1s cubic-bezier(.22,.68,.36,1) both}
 /* ② 메모지 */
-.contents_div.is-bnf-hm-play .bnf-hm__memo{animation:bnfHmMemo 1s cubic-bezier(.16,1,.3,1) .1s both}
+.contents_div.is-bnf-hm-play .bnf-hm__memo{animation:bnfHmMemo 1.6s cubic-bezier(.33,.8,.3,1) .15s both}   /* 천천히 내려앉게 1s → 1.6s */
 /* ③ 첫 줄 · 알람시계 */
-.contents_div.is-bnf-hm-play .bnf-hm__t1a{animation:bnfHmDrop .5s cubic-bezier(.22,.68,.36,1) .5s both}
-.contents_div.is-bnf-hm-play .bnf-hm__t1b{animation:bnfHmDrop .5s cubic-bezier(.22,.68,.36,1) .6s both}
-.contents_div.is-bnf-hm-play .bnf-hm__clk{animation:bnfHmPop .55s cubic-bezier(.34,1.7,.64,1) .65s both}
-.contents_div.is-bnf-hm-play .bnf-hm__clk .bnf-hm__in{animation:bnfHmRing 4s ease-in-out 1.6s infinite}
+.contents_div.is-bnf-hm-play .bnf-hm__t1a{animation:bnfHmDrop .5s cubic-bezier(.22,.68,.36,1) 0.95s both}
+.contents_div.is-bnf-hm-play .bnf-hm__t1b{animation:bnfHmDrop .5s cubic-bezier(.22,.68,.36,1) 1.05s both}
+.contents_div.is-bnf-hm-play .bnf-hm__clk{animation:bnfHmPop .55s cubic-bezier(.34,1.7,.64,1) 1.1s both}
+.contents_div.is-bnf-hm-play .bnf-hm__clk .bnf-hm__in{animation:bnfHmRing 4s ease-in-out 2.05s infinite}
 /* ④ 전남광주 · 소식! */
-.contents_div.is-bnf-hm-play .bnf-hm__t2{animation:bnfHmStamp .55s linear 1.1s both}
-.contents_div.is-bnf-hm-play .bnf-hm__t3{animation:bnfHmStamp .55s linear 1.35s both}
+.contents_div.is-bnf-hm-play .bnf-hm__t2{animation:bnfHmStamp .55s linear 1.55s both}
+.contents_div.is-bnf-hm-play .bnf-hm__t3{animation:bnfHmStamp .55s linear 1.8s both}
 /* ⑤ 버스 · 축사 · 말풍선 */
-.contents_div.is-bnf-hm-play .bnf-hm__bus{animation:bnfHmDrive .9s cubic-bezier(.25,.8,.35,1) 1.55s both}
-.contents_div.is-bnf-hm-play .bnf-hm__barn{animation:bnfHmRise .8s cubic-bezier(.34,1.45,.64,1) 1.75s both}
-.contents_div.is-bnf-hm-play .bnf-hm__b1{animation:bnfHmPop .5s cubic-bezier(.34,1.7,.64,1) 2.25s both}
-.contents_div.is-bnf-hm-play .bnf-hm__b2{animation:bnfHmPop .5s cubic-bezier(.34,1.7,.64,1) 2.4s both}
+.contents_div.is-bnf-hm-play .bnf-hm__bus{animation:bnfHmDrive .9s cubic-bezier(.25,.8,.35,1) 2s both}
+.contents_div.is-bnf-hm-play .bnf-hm__barn{animation:bnfHmRise .8s cubic-bezier(.34,1.45,.64,1) 2.2s both}
+.contents_div.is-bnf-hm-play .bnf-hm__b1{animation:bnfHmPop .5s cubic-bezier(.34,1.7,.64,1) 2.7s both}
+.contents_div.is-bnf-hm-play .bnf-hm__b2{animation:bnfHmPop .5s cubic-bezier(.34,1.7,.64,1) 2.85s both}
 /* ⑥ 둥실 */
-.contents_div.is-bnf-hm-play .bnf-hm__bus .bnf-hm__in{animation:bnfHmBob 2.6s ease-in-out 2.5s infinite}
-.contents_div.is-bnf-hm-play .bnf-hm__barn .bnf-hm__in{animation:bnfHmBob 3s ease-in-out 2.7s infinite}
-.contents_div.is-bnf-hm-play .bnf-hm__b1 .bnf-hm__in{animation:bnfHmFloat 3.2s ease-in-out 2.8s infinite}
-.contents_div.is-bnf-hm-play .bnf-hm__b2 .bnf-hm__in{animation:bnfHmFloat 3.2s ease-in-out 3.2s infinite}
+.contents_div.is-bnf-hm-play .bnf-hm__bus .bnf-hm__in{animation:bnfHmBob 2.6s ease-in-out 2.95s infinite}
+.contents_div.is-bnf-hm-play .bnf-hm__barn .bnf-hm__in{animation:bnfHmBob 3s ease-in-out 3.15s infinite}
+.contents_div.is-bnf-hm-play .bnf-hm__b1 .bnf-hm__in{animation:bnfHmFloat 3.2s ease-in-out 3.25s infinite}
+.contents_div.is-bnf-hm-play .bnf-hm__b2 .bnf-hm__in{animation:bnfHmFloat 3.2s ease-in-out 3.65s infinite}
 /* 히어로가 화면 밖이면 반복 모션 정지 */
 .contents_div.is-bnf-hm-off .bnf-hm *{animation-play-state:paused}
 
 @keyframes bnfHmBg{from{opacity:.4;transform:scale(1.04)}to{opacity:1;transform:none}}
 @keyframes bnfHmMemo{   /* 들고 있던 메모를 달력에 살며시 내려놓고 압정으로 꾹 눌러 고정 */
-  0%{opacity:0;transform:translateY(-5%) scale(1.07) rotate(-4deg);filter:blur(5px)}
-  55%{opacity:1;transform:translateY(.3%) scale(.992) rotate(.4deg);filter:blur(0)}
-  75%{transform:scale(1.003)}
+  0%{opacity:0;transform:translateY(-4%) scale(1.05) rotate(-3deg);filter:blur(4px)}
+  35%{opacity:1;filter:blur(0)}
+  65%{transform:translateY(.2%) scale(.995) rotate(.3deg)}
+  85%{transform:scale(1.002)}
   100%{opacity:1;transform:none;filter:none}
 }
 @keyframes bnfHmDrop{from{opacity:0;transform:translateY(-4%)}to{opacity:1;transform:none}}
