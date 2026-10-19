@@ -1,0 +1,1418 @@
+<!-- 모바일 좌우 패딩 16 -->
+<script>
+if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
+  var s=document.createElement('style');
+  s.textContent='body{margin:0}@media(max-width:700px){.contents_div{padding:0 16px}}@media(max-width:576px){.contents_div br{display:inline!important}}';
+  document.head.appendChild(s);
+}
+</script>
+
+<!-- 히어로 애니메이션 테스트 (로컬 file: · github.io 미리보기에서만 동작 — 실서버 CMS에서는 아무것도 하지 않음)
+     · 스크롤 테스트 공간은 본문의 jngj-test-spacer(TEST 주석 줄)가 담당
+     · 오른쪽 아래 '다시 재생' 버튼 : 히어로 애니메이션을 처음부터 다시 -->
+<script>
+if(location.protocol==='file:'||location.hostname.indexOf('github.io')>-1){
+  document.addEventListener('DOMContentLoaded',function(){
+    var root=document.querySelector('.contents_div'); if(!root) return;
+    var btn=document.createElement('button');
+    btn.type='button'; btn.textContent='히어로 다시 재생';
+    btn.setAttribute('style','position:fixed;right:12px;bottom:12px;z-index:9999;padding:10px 14px;border:0;border-radius:999px;background:#0B2A99;color:#fff;font:700 13px sans-serif;box-shadow:0 4px 12px rgba(0,0,0,.25);cursor:pointer');
+    btn.addEventListener('click',function(){
+      if(!root.classList.contains('is-bnf-hm-play')) return;
+      root.classList.remove('is-bnf-hm-play'); void root.offsetWidth; root.classList.add('is-bnf-hm-play');
+    });
+    document.body.appendChild(btn);
+  });
+}
+</script>
+
+<script>
+  (function(){
+    try{
+      if(!document.querySelector('meta[name="viewport"]')){
+        var m=document.createElement('meta');
+        m.setAttribute('name','viewport');
+        m.setAttribute('content','width=device-width, initial-scale=1');
+        (document.head||document.getElementsByTagName('head')[0]||document.documentElement).appendChild(m);
+      }
+    }catch(e){}
+  })();
+  </script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+
+<!-- ============================================================
+     SEO 메타 (CMS 헤더 입력용 — 본문에 직접 넣지 않음)
+     <title>이번 주 전남광주 소식 | 광주 시내버스 노선 개편(10/31)·축사 신축·개보수 융자 지원·자원봉사 우수사례 공모전 — 2026년 10월 4주차</title>
+     <meta name="description" content="2026년 10월 4주차 전남광주통합특별시 소식. 광주 시내버스가 10월 31일부터 노선 103개→115개, 하루 운행 8,394회→8,929회로 개편됩니다. 축산농가는 10월 28일까지 축사 신축·개보수 사업비 80%를 연 2%로 융자받을 수 있고, 자원봉사활동 우수 체험사례 공모전은 10월 31일까지 접수합니다.">
+     <meta name="keywords" content="전남광주통합특별시, 광주 시내버스 노선 개편, 10월 31일 버스 개편, 광주 버스 운행 정보, 개편 노선 검색, 축사시설현대화사업, 축사 신축 개보수 융자, 축산농가 지원, 자원봉사 우수 체험사례 공모전, 1365 자원봉사">
+     <meta name="robots" content="index, follow, max-image-preview:large">
+     <link rel="canonical" href="https://www.jeonnam-gwangju.go.kr/benefits/2026-10-4week">
+     <meta property="og:type" content="article">
+     <meta property="og:site_name" content="전남광주통합특별시">
+     <meta property="og:locale" content="ko_KR">
+     <meta property="og:title" content="이번 주 챙겨야 할 전남광주 소식 — 2026년 10월 4주차">
+     <meta property="og:description" content="10월 31일 광주 시내버스 노선 개편, 축사 신축·개보수 사업비 80% 저리 융자(10/28 마감), 자원봉사 우수 체험사례 공모전(10/31 마감)까지 한눈에.">
+     <meta property="og:url" content="https://www.jeonnam-gwangju.go.kr/benefits/2026-10-4week">
+     <meta property="og:image" content="https://www.jeonnam-gwangju.go.kr/img/히어로.webp">
+     <meta property="og:image:width" content="1600">
+     <meta property="og:image:height" content="1351">
+     <meta property="og:image:alt" content="이번 주 챙겨야 할 전남광주 소식! — 광주 시내버스 노선 개편 10/31, 축산농가 지원">
+     <meta property="article:published_time" content="2026-10-19T09:00:00+09:00">
+     <meta property="article:modified_time" content="2026-10-19T09:00:00+09:00">
+     <meta name="twitter:card" content="summary_large_image">
+     <meta name="twitter:title" content="이번 주 챙겨야 할 전남광주 소식 — 2026년 10월 4주차">
+     <meta name="twitter:description" content="광주 시내버스 노선 개편(10/31), 축사 신축·개보수 융자 지원(10/28 마감), 자원봉사 우수 체험사례 공모전(10/31 마감).">
+     ============================================================ -->
+
+<!-- 구조화 데이터 : 기사 · 목록 · 이동경로 · 행정서비스 · 공모전 · FAQ (AEO/GEO) — 화면 내용과 동일하게 유지 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://www.jeonnam-gwangju.go.kr/benefits/2026-10-4week#article",
+      "headline": "이번 주 챙겨야 할 전남광주 소식 — 2026년 10월 4주차",
+      "alternativeHeadline": "광주 시내버스 노선 개편, 축사 신축·개보수 융자 지원, 자원봉사 우수 체험사례 공모전",
+      "description": "2026년 10월 4주차 전남광주통합특별시 소식. 광주 시내버스는 10월 31일부터 노선 103개→115개, 하루 운행 8,394회→8,929회로 개편된다. 축산농가는 10월 28일까지 축사 신축·개보수 사업비의 80%를 연 2%로 융자받을 수 있다. 2026 자원봉사활동 우수 체험사례 공모전은 10월 31일까지 접수한다.",
+      "datePublished": "2026-10-19T09:00:00+09:00",
+      "dateModified": "2026-10-19T09:00:00+09:00",
+      "inLanguage": "ko-KR",
+      "isAccessibleForFree": true,
+      "keywords": ["광주 시내버스 노선 개편", "개편 노선 검색", "축사시설현대화사업", "축사 융자 지원", "축산농가", "자원봉사 우수 체험사례 공모전", "전남광주통합특별시"],
+      "about": [
+        {"@type": "Thing", "name": "광주 시내버스 노선 개편"},
+        {"@type": "Thing", "name": "2027 축사시설현대화사업"},
+        {"@type": "Thing", "name": "2026 자원봉사활동 우수 체험사례 공모전"}
+      ],
+      "spatialCoverage": {"@type": "AdministrativeArea", "name": "전남광주통합특별시"},
+      "author": {"@id": "https://www.jeonnam-gwangju.go.kr/#org"},
+      "publisher": {"@id": "https://www.jeonnam-gwangju.go.kr/#org"},
+      "image": {"@type": "ImageObject", "url": "https://www.jeonnam-gwangju.go.kr/img/히어로.webp", "width": 1600, "height": 1351},
+      "mainEntityOfPage": {"@type": "WebPage", "@id": "https://www.jeonnam-gwangju.go.kr/benefits/2026-10-4week"},
+      "hasPart": {"@id": "https://www.jeonnam-gwangju.go.kr/benefits/2026-10-4week#list"},
+      "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".bnf-intro h1", ".bnf-card h2", ".bnf-point"]}
+    },
+    {
+      "@type": "GovernmentOrganization",
+      "@id": "https://www.jeonnam-gwangju.go.kr/#org",
+      "name": "전남광주통합특별시",
+      "url": "https://www.jeonnam-gwangju.go.kr/",
+      "logo": {"@type": "ImageObject", "url": "https://www.jeonnam-gwangju.go.kr/img/logo.webp"}
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://www.jeonnam-gwangju.go.kr/benefits/2026-10-4week#list",
+      "name": "2026년 10월 4주차 전남광주 소식",
+      "numberOfItems": 3,
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "광주 시내버스 노선 개편 (2026. 10. 31.부터)", "description": "노선 103개→115개, 하루 운행 횟수 8,394회→8,929회, 간선 노선 직선화와 혼잡·중복·장거리 노선 조정", "url": "https://www.jeonnam-gwangju.go.kr/benefits/2026-10-4week#bnf-b1"},
+        {"@type": "ListItem", "position": 2, "name": "축사 신축·개보수 융자 지원 (2026. 10. 28.까지 신청)", "description": "2027 축사시설현대화사업 — 사업비 80%를 연 2%, 5년 거치 10년 상환으로 융자", "url": "https://www.jeonnam-gwangju.go.kr/benefits/2026-10-4week#bnf-b2"},
+        {"@type": "ListItem", "position": 3, "name": "2026 자원봉사활동 우수 체험사례 공모전 (2026. 10. 31.까지)", "description": "전남광주통합특별시민 대상, 10명 시상(최우수상 2·우수상 2·장려상 6)", "url": "https://www.jeonnam-gwangju.go.kr/benefits/2026-10-4week#bnf-b3"}
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "홈", "item": "https://www.jeonnam-gwangju.go.kr/"},
+        {"@type": "ListItem", "position": 2, "name": "지원·혜택", "item": "https://www.jeonnam-gwangju.go.kr/benefits"},
+        {"@type": "ListItem", "position": 3, "name": "2026년 10월 4주차", "item": "https://www.jeonnam-gwangju.go.kr/benefits/2026-10-4week"}
+      ]
+    },
+    {
+      "@type": "GovernmentService",
+      "@id": "https://www.jeonnam-gwangju.go.kr/benefits/2026-10-4week#bnf-b2",
+      "name": "2027 축사시설현대화사업 — 축사 신축·개보수 융자 지원",
+      "serviceType": "축산농가 시설 개선 융자 지원",
+      "description": "축사 신축·개보수와 사육·방역시설 개선 등에 필요한 사업비의 80%를 연 2%, 5년 거치 10년 상환 조건으로 융자 지원한다. 나머지 20%는 농가가 부담한다. 지원 분야는 신축·이전·개보수, 급이·급수·전기·착유·환기시설, 방역·방제시설, 분뇨처리시설, 경관개선시설 설치 등이다.",
+      "provider": {"@id": "https://www.jeonnam-gwangju.go.kr/#org"},
+      "areaServed": {"@type": "AdministrativeArea", "name": "전남광주통합특별시"},
+      "audience": {"@type": "Audience", "audienceType": "축산업 허가를 받거나 등록한 농가와 농업법인 (신규: 해당 축종 농장 실무경력 3년 이상 또는 축산 관련 고등학교·대학 관련 학과 졸업생)"},
+      "availableChannel": {"@type": "ServiceChannel", "name": "해당 시군 읍면동 축산 담당부서 제출"},
+      "url": "https://www.jeonnam-gwangju.go.kr/boardView.do?pageId=jngj22&boardId=JG_0000000003&seq=956&movePage=1&recordCnt=10"
+    },
+    {
+      "@type": "Event",
+      "@id": "https://www.jeonnam-gwangju.go.kr/benefits/2026-10-4week#bnf-b3",
+      "name": "2026 자원봉사활동 우수 체험사례 공모전",
+      "description": "자원봉사활동 우수사례를 발굴·공유하고 자원봉사의 가치 확산과 참여 문화 조성을 위한 공모전. 일반부(대학생 포함)·학생부(중·고생), 사회복지·문화체육·환경미화·교통질서·재난재해 지원·복구 등 모든 영역의 자원봉사활동 체험사례. 최근 2년('24.10.~'26.9.) 자원봉사 실적이 확인되는 체험수기에 한함. 10명 시상(최우수상 2, 우수상 2, 장려상 6).",
+      "startDate": "2026-09-07",
+      "endDate": "2026-10-31",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+      "location": {"@type": "VirtualLocation", "url": "https://sido.jeonnam.go.kr/citynet/jsp/sap/SAPGosiBizProcess.do?command=searchDetail&flag=gosiGL&svp=Y&sido=&sno=47575&gosiGbn=A"},
+      "organizer": {"@id": "https://www.jeonnam-gwangju.go.kr/#org"},
+      "audience": {"@type": "Audience", "audienceType": "전남광주통합특별시민 (특별시 내 학교 재학·직장 재직자로 특별시 내 자원봉사활동 참가자 포함)"},
+      "isAccessibleForFree": true,
+      "inLanguage": "ko-KR"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.jeonnam-gwangju.go.kr/benefits/2026-10-4week#faq",
+      "mainEntity": [
+        {"@type": "Question", "name": "광주 시내버스 노선 개편은 언제부터 시행되나요?",
+         "acceptedAnswer": {"@type": "Answer", "text": "2026년 10월 31일(토)부터 개편된 노선으로 운행합니다."}},
+        {"@type": "Question", "name": "광주 시내버스 노선 개편으로 무엇이 달라지나요?",
+         "acceptedAnswer": {"@type": "Answer", "text": "시내버스 노선이 103개에서 115개로 늘고, 하루 운행 횟수가 8,394회에서 8,929회로 늘어납니다. 간선 노선을 직선화하고 혼잡·중복·장거리 노선을 조정해 배차 간격을 줄였습니다."}},
+        {"@type": "Question", "name": "달라진 광주 시내버스 노선은 어디서 확인하나요?",
+         "acceptedAnswer": {"@type": "Answer", "text": "전남광주통합특별시 누리집의 광주 버스 운행 정보(PDF) 또는 개편 노선 검색 페이지에서 확인할 수 있습니다."}},
+        {"@type": "Question", "name": "축사시설현대화사업 융자 조건은 어떻게 되나요?",
+         "acceptedAnswer": {"@type": "Answer", "text": "축사 신축·개보수와 사육·방역시설 개선 등에 필요한 사업비의 80%를 연 2%, 5년 거치 10년 상환 조건으로 융자 지원합니다. 나머지 20%는 농가가 부담합니다."}},
+        {"@type": "Question", "name": "축사 신축·개보수 융자 지원 대상은 누구인가요?",
+         "acceptedAnswer": {"@type": "Answer", "text": "축산업 허가를 받거나 등록한 농가와 농업법인입니다. 신규는 해당 축종의 농장 실무경력이 3년 이상이거나 축산 관련 고등학교·대학 관련 학과 졸업생이어야 합니다."}},
+        {"@type": "Question", "name": "축사시설현대화사업은 언제까지, 어디에 신청하나요?",
+         "acceptedAnswer": {"@type": "Answer", "text": "2026년 10월 28일(수)까지 해당 시군 읍면동 축산 담당부서에 제출하면 됩니다."}},
+        {"@type": "Question", "name": "자원봉사활동 우수 체험사례 공모전은 누가, 언제까지 응모할 수 있나요?",
+         "acceptedAnswer": {"@type": "Answer", "text": "전남광주통합특별시민이면 2026년 9월 7일(월)부터 10월 31일(토)까지 응모할 수 있습니다. 특별시 내 학교에 재학하거나 직장에 재직하면서 특별시 내 자원봉사활동에 참가한 사람도 포함됩니다. 일반부(대학생 포함)와 학생부(중·고생)로 나뉩니다."}},
+        {"@type": "Question", "name": "자원봉사 공모전 시상 규모와 응모 조건은 무엇인가요?",
+         "acceptedAnswer": {"@type": "Answer", "text": "총 10명(최우수상 2명, 우수상 2명, 장려상 6명)을 시상합니다. 최근 2년('24.10.~'26.9.)의 자원봉사 실적이 확인되는 체험수기에 한하며, 실적은 1365자원봉사포털 또는 사회복지자원봉사 인증관리에서 확인합니다."}}
+      ]
+    }
+  ]
+}
+</script>
+
+<div class="contents_div">
+<style>
+
+@font-face{font-family:'Pretendard';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Thin.woff2') format('woff2');font-weight:100;font-style:normal;font-display:swap}
+@font-face{font-family:'Pretendard';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraLight.woff2') format('woff2');font-weight:200;font-style:normal;font-display:swap}
+@font-face{font-family:'Pretendard';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Light.woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Pretendard';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Pretendard';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Pretendard';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-SemiBold.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:'Pretendard';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Pretendard';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraBold.woff2') format('woff2');font-weight:800;font-style:normal;font-display:swap}
+@font-face{font-family:'Pretendard';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Black.woff2') format('woff2');font-weight:900;font-style:normal;font-display:swap}
+
+@font-face{font-family:'Paperozi';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-1Thin.woff2') format('woff2');font-weight:100;font-display:swap}
+@font-face{font-family:'Paperozi';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-2ExtraLight.woff2') format('woff2');font-weight:200;font-display:swap}
+@font-face{font-family:'Paperozi';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-3Light.woff2') format('woff2');font-weight:300;font-display:swap}
+@font-face{font-family:'Paperozi';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-4Regular.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Paperozi';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-5Medium.woff2') format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:'Paperozi';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-6SemiBold.woff2') format('woff2');font-weight:600;font-display:swap}
+@font-face{font-family:'Paperozi';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-7Bold.woff2') format('woff2');font-weight:700;font-display:swap}
+@font-face{font-family:'Paperozi';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');font-weight:800;font-display:swap}
+@font-face{font-family:'Paperozi';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-9Black.woff2') format('woff2');font-weight:900;font-display:swap}
+
+/* ── 스코프 리셋 (전역 오염 없음) ─────────────────────────── */
+.contents_div{
+
+  /* ── 컬러 시스템 (변수명 유지) ─────────────────────────────
+     10월 4주 히어로 팔레트 — 달력 화이트 바탕 + 쨍한 블루 메모지 + 옐로 타이틀 + 핑크·하늘 말풍선
+     기준색 : 화이트블루 #F7FBFE (달력) / 블루 #1A4BFF (메모지) / 딥블루 #0B2A99 (내비) / 옐로 #EDED82 / 핑크 #FFBEC7 / 하늘 #BFDCFE
+     red    = 일반시민 → 블루 (하늘 말풍선과 같은 계열)
+     violet = 체험·행사 → 핑크 (핑크 말풍선과 같은 계열)
+     blue·cyan = 브랜드·인트로 캡슐 → 딥블루
+     ------------------------------------------------------------- */
+  --bnf-ink:#141C3A;
+  --bnf-gray:#5A6378;
+  --bnf-line:#E1E8F2;
+  --bnf-bg:#E3EBF6;
+
+  --bnf-blue:#1A4BFF;
+  --bnf-blue-soft:#EEF3FF;
+  --bnf-blue-line:#CCDAFE;
+  --bnf-blue-hl:#D3E2FE;
+  --bnf-blue-deep:#0B2A99;
+  --bnf-blue-dark:#0B2A99;
+
+  --bnf-pink:#C9961F;
+  --bnf-pink-soft:#FFF7E2;
+  --bnf-pink-line:#F7E2AC;
+  --bnf-pink-hl:#FBE3A0;
+  --bnf-pink-deep:#87600A;
+
+  --bnf-cyan:#0B2A99;
+  --bnf-cyan-soft:#EEF3FF;
+  --bnf-cyan-line:#CCDAFE;
+  --bnf-cyan-nav:#CCDAFE;
+  --bnf-cyan-nav-bg:#EEF3FF;
+  --bnf-cyan-hl:#D3E2FE;
+
+  --bnf-violet:#C2283F;        /* 글자용 핑크레드 (밝은 바탕 대비 4.5 이상) */
+  --bnf-violet-accent:#E8546B; /* 체크·장식용 핑크 */
+  --bnf-violet-soft:#FFEEF0;   /* 배지·포인트 바탕 */
+  --bnf-violet-line:#FFCFD6;   /* 포인트 박스 테두리 */
+  --bnf-violet-hl:#FFD3DA;
+
+  /* 내비 hover */
+  --bnf-cyan-hover:#EDED82;
+  --bnf-cool-gray:#5A6378;
+
+  /* 일반시민 카드 포인트 : 메모지 블루 */
+  --bnf-red:#1A4BFF;
+  --bnf-red-soft:#EEF4FF;
+  --bnf-red-line:#CCDCFE;
+  --bnf-red-hl:#CFE0FE;
+  --bnf-red-deep:#1438C8;   /* 글자용 (밝은 바탕 대비 4.5 이상) */
+
+  /* 축산농가·지원 카드 (is-biz) : 일반시민 블루와 구별되는 그린 */
+  --bnf-green:#1B6E47;        /* 글자용 (밝은 바탕 대비 4.5 이상) */
+  --bnf-green-accent:#2E9E66; /* 체크·점 */
+  --bnf-green-soft:#EAF6EF;
+  --bnf-green-line:#C5E5D3;
+  --bnf-green-hl:#CBEBD8;
+
+  --bnf-tag-ink:#5F6B85;
+  --bnf-tag-line:#D9E2EF;
+  --bnf-sans:'Pretendard','Pretendard Variable',-apple-system,BlinkMacSystemFont,system-ui,'Malgun Gothic',sans-serif;
+  --bnf-head:'Paperozi',var(--bnf-sans);   /* 타이틀 : Paperlogy */
+  --bnf-gap:70px;
+  --bnf-gut:clamp(16px, 6.25%, 50px);
+
+  max-width:800px;
+  margin-left:auto;margin-right:auto;
+  display:flow-root;
+  container-type:inline-size;
+  container-name:bnfroot;
+  background:transparent;
+  color:var(--bnf-ink);
+  font-family:var(--bnf-sans);
+  font-weight:500;
+  line-height:1.62;
+  word-break:keep-all;
+  overflow-wrap:anywhere;
+  -webkit-text-size-adjust:100%;
+}
+.contents_div *,
+.contents_div *::before,
+.contents_div *::after{box-sizing:border-box}
+.contents_div img{display:block;width:100%;height:auto;border:0}
+.contents_div a{color:inherit;text-decoration:none}
+.contents_div h1,.contents_div h2,.contents_div h3,
+.contents_div p,.contents_div dl,.contents_div dd,.contents_div ul,.contents_div figure{margin:0;padding:0}
+.contents_div h1,.contents_div h2,.contents_div h3{font-family:var(--bnf-head);text-rendering:geometricPrecision;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.contents_div ul{list-style:none}
+.contents_div :focus-visible{outline:2.5px solid var(--bnf-blue-deep);outline-offset:2px}
+
+/* ── 레이아웃 ─────────────────────────────────────────────── */
+.contents_div .bnf-page{width:100%;max-width:800px;margin:0 auto;display:flow-root;background:#F7FBFE}   /* 모바일 섹션 배경 */
+
+.contents_div .bnf-hero,
+.contents_div .bnf-intro,
+.contents_div .bnf-card,
+.contents_div .bnf-tags{
+  position:relative;
+  margin:var(--bnf-gap) 0;
+  padding-left:var(--bnf-gut);padding-right:var(--bnf-gut);
+}
+
+.contents_div .bnf-hero{margin:0;padding-left:0;padding-right:0}
+.contents_div .bnf-intro{margin-top:0}
+
+.contents_div .bnf-tags{margin-bottom:31px}
+
+/* 인트로 섹션 : 히어로 아래 별도 섹션 (모바일은 카드와 같은 구분 띠) */
+.contents_div .bnf-hero + .bnf-intro{padding-top:44px;margin-bottom:var(--bnf-gap)}
+.contents_div .bnf-hero + .bnf-intro::after{display:block}
+
+.contents_div .bnf-intro::after,
+.contents_div .bnf-card::after{
+  content:"";position:absolute;left:0;right:0;
+  bottom:calc(var(--bnf-gap) / -2 - 4px);
+  height:8px;background:var(--bnf-bg);
+}
+
+/* ── 히어로 : 1600×1351 이미지(화면 최대 800×676) + 아래 한 줄 내비 ── */
+.contents_div .bnf-hero__frame{
+  position:relative;
+  width:100%;max-width:800px;margin:0 auto;
+  aspect-ratio:1600 / 1351;
+  overflow:hidden;
+  background:#F7FBFE;   /* 이미지 로드 전 히어로 바탕색 */
+}
+.contents_div .bnf-hero__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@supports not (aspect-ratio:1/1){
+  .contents_div .bnf-hero__frame{height:0;padding-top:84.44%}
+}
+
+/* ── 히어로 모션 : 레이어 4장 (프리픽스 bnf-hm) ─────────────────────
+   레이어(전부 1600×1351 원본, 투명 배경) : ①달력 배경 ②메모지+압정 ③타이틀 ④말풍선+아이콘
+   ③④는 JS가 같은 원본을 복제해 clip-path로 글줄·요소 단위만 잘라 움직인다 (좌표는 원본 기준 %)
+
+   연출 : "달력에 메모를 꽂는다"
+   ① 달력이 살짝 다가오며 자리 잡고
+   ② 메모지가 살짝 들린 채 흐릿하게 나타나 달력 위에 내려앉고, 압정 쪽으로 꾹 눌려 고정된다
+   ③ '이번 주 · 챙겨야 할'이 내려앉고, 알람시계가 튀어나와 4초마다 따르릉 흔들린다
+   ④ '전남광주' → '소식!'이 도장처럼 쾅쾅 찍힌다
+   ⑤ 버스가 왼쪽에서 달려 들어오고, 축사가 아래에서 솟는다 → 말풍선이 꼬리 쪽에서 톡 튀어나온다
+   ⑥ 이후 버스·축사·말풍선이 천천히 둥실거린다
+
+   .is-bnf-hm 은 스크립트가 붙인다 → JS 미동작·동작 줄이기·로드 실패 시 레이어 4장이 정지 화면으로 겹쳐 보인다
+   ─────────────────────────────────────────────────────────── */
+.contents_div .bnf-hm{position:absolute;inset:0}
+.contents_div .bnf-hm img{position:absolute;inset:0;display:block;width:100%;height:100%;max-width:none;max-height:none;object-fit:cover}
+.contents_div .bnf-hm__pc,
+.contents_div .bnf-hm__in{position:absolute;inset:0;transform-origin:var(--o,50% 50%)}
+.contents_div .bnf-hm__in{clip-path:var(--clip,none)}
+.contents_div .bnf-hm__pc{display:none;pointer-events:none}
+.contents_div .bnf-hm__memo{transform-origin:48.94% 18.5%}   /* 압정 위치 */
+
+/* 조각 영역 — inset(위 오른쪽 아래 왼쪽) / polygon : 원본 1600×1351 기준 */
+.contents_div .bnf-hm__t1a{--clip:inset(25.17% 55.75% 63.58% 30.94%)}                          /* 이번 주 */
+.contents_div .bnf-hm__clk{--clip:inset(24.8% 49.38% 64.47% 44.25%);--o:47.31% 30.57%}          /* 알람시계 */
+.contents_div .bnf-hm__t1b{--clip:inset(25.17% 31.25% 63.58% 50.63%)}                          /* 챙겨야 할 */
+.contents_div .bnf-hm__t2{--clip:polygon(26.88% 35.53%,75% 35.53%,75% 52.55%,26.88% 57.74%);--o:50.94% 46.48%}   /* 전남광주 */
+.contents_div .bnf-hm__t3{--clip:polygon(26.88% 57.74%,75% 52.55%,75% 73.28%,26.88% 73.28%);--o:52.5% 63.66%}    /* 소식! */
+.contents_div .bnf-hm__b1{--clip:inset(26.28% 72.19% 56.18% 2.5%);--o:20.63% 42.04%}            /* 말풍선 : 시내버스 */
+.contents_div .bnf-hm__bus{--clip:inset(43.82% 71.25% 31.9% 0);--o:14.38% 64.4%}                /* 버스 */
+.contents_div .bnf-hm__b2{--clip:inset(54.4% 1.25% 29.68% 74.38%);--o:89.69% 69.43%}            /* 말풍선 : 축산농가 */
+.contents_div .bnf-hm__barn{--clip:inset(70.32% 0 6% 71.88%);--o:85% 89.93%}                    /* 축사 */
+
+/* 모션 켜짐 : 조각 표시, 통짜 타이틀·말풍선 레이어는 숨김 */
+.contents_div.is-bnf-hm .bnf-hm__pc{display:block}
+.contents_div.is-bnf-hm .bnf-hm__title,
+.contents_div.is-bnf-hm .bnf-hm__deco{visibility:hidden}
+/* 대기 : 히어로가 화면에 30% 들어오기 전에는 달력만 */
+.contents_div.is-bnf-hm:not(.is-bnf-hm-play) .bnf-hm__memo,
+.contents_div.is-bnf-hm:not(.is-bnf-hm-play) .bnf-hm__pc{visibility:hidden}
+
+/* ① 달력 */
+.contents_div.is-bnf-hm-play .bnf-hm__bg{animation:bnfHmBg 1s cubic-bezier(.22,.68,.36,1) both}
+/* ② 메모지 */
+.contents_div.is-bnf-hm-play .bnf-hm__memo{animation:bnfHmMemo 1s cubic-bezier(.16,1,.3,1) .1s both}
+/* ③ 첫 줄 · 알람시계 */
+.contents_div.is-bnf-hm-play .bnf-hm__t1a{animation:bnfHmDrop .5s cubic-bezier(.22,.68,.36,1) .5s both}
+.contents_div.is-bnf-hm-play .bnf-hm__t1b{animation:bnfHmDrop .5s cubic-bezier(.22,.68,.36,1) .6s both}
+.contents_div.is-bnf-hm-play .bnf-hm__clk{animation:bnfHmPop .55s cubic-bezier(.34,1.7,.64,1) .65s both}
+.contents_div.is-bnf-hm-play .bnf-hm__clk .bnf-hm__in{animation:bnfHmRing 4s ease-in-out 1.6s infinite}
+/* ④ 전남광주 · 소식! */
+.contents_div.is-bnf-hm-play .bnf-hm__t2{animation:bnfHmStamp .55s linear 1.1s both}
+.contents_div.is-bnf-hm-play .bnf-hm__t3{animation:bnfHmStamp .55s linear 1.35s both}
+/* ⑤ 버스 · 축사 · 말풍선 */
+.contents_div.is-bnf-hm-play .bnf-hm__bus{animation:bnfHmDrive .9s cubic-bezier(.25,.8,.35,1) 1.55s both}
+.contents_div.is-bnf-hm-play .bnf-hm__barn{animation:bnfHmRise .8s cubic-bezier(.34,1.45,.64,1) 1.75s both}
+.contents_div.is-bnf-hm-play .bnf-hm__b1{animation:bnfHmPop .5s cubic-bezier(.34,1.7,.64,1) 2.25s both}
+.contents_div.is-bnf-hm-play .bnf-hm__b2{animation:bnfHmPop .5s cubic-bezier(.34,1.7,.64,1) 2.4s both}
+/* ⑥ 둥실 */
+.contents_div.is-bnf-hm-play .bnf-hm__bus .bnf-hm__in{animation:bnfHmBob 2.6s ease-in-out 2.5s infinite}
+.contents_div.is-bnf-hm-play .bnf-hm__barn .bnf-hm__in{animation:bnfHmBob 3s ease-in-out 2.7s infinite}
+.contents_div.is-bnf-hm-play .bnf-hm__b1 .bnf-hm__in{animation:bnfHmFloat 3.2s ease-in-out 2.8s infinite}
+.contents_div.is-bnf-hm-play .bnf-hm__b2 .bnf-hm__in{animation:bnfHmFloat 3.2s ease-in-out 3.2s infinite}
+/* 히어로가 화면 밖이면 반복 모션 정지 */
+.contents_div.is-bnf-hm-off .bnf-hm *{animation-play-state:paused}
+
+@keyframes bnfHmBg{from{opacity:.4;transform:scale(1.04)}to{opacity:1;transform:none}}
+@keyframes bnfHmMemo{   /* 들고 있던 메모를 달력에 살며시 내려놓고 압정으로 꾹 눌러 고정 */
+  0%{opacity:0;transform:translateY(-5%) scale(1.07) rotate(-4deg);filter:blur(5px)}
+  55%{opacity:1;transform:translateY(.3%) scale(.992) rotate(.4deg);filter:blur(0)}
+  75%{transform:scale(1.003)}
+  100%{opacity:1;transform:none;filter:none}
+}
+@keyframes bnfHmDrop{from{opacity:0;transform:translateY(-4%)}to{opacity:1;transform:none}}
+@keyframes bnfHmPop{
+  from{opacity:0;transform:scale(.2)}
+  to{opacity:1;transform:none}
+}
+@keyframes bnfHmRing{
+  0%,16%,100%{transform:none}
+  2%{transform:rotate(-14deg)}
+  4%{transform:rotate(12deg)}
+  6%{transform:rotate(-12deg)}
+  8%{transform:rotate(10deg)}
+  10%{transform:rotate(-7deg)}
+  12%{transform:rotate(4deg)}
+}
+@keyframes bnfHmStamp{
+  0%{opacity:0;transform:scale(1.4);animation-timing-function:cubic-bezier(.55,0,.9,.45)}   /* 1.4배까지만 : 원본 1600px 이상 확대 방지(모바일 3배 화면 375×3×1.4 ≈ 1575) */
+  45%{opacity:1;transform:scale(.94)}
+  65%{transform:scale(1.04,.97)}
+  82%{transform:scale(.99,1.01)}
+  100%{opacity:1;transform:none}
+}
+@keyframes bnfHmDrive{
+  0%{opacity:0;transform:translateX(-30%)}
+  20%{opacity:1}
+  75%{transform:translateX(1.2%)}
+  100%{opacity:1;transform:none}
+}
+@keyframes bnfHmRise{from{opacity:0;transform:translateY(14%) scale(.9)}to{opacity:1;transform:none}}
+@keyframes bnfHmBob{0%,100%{transform:none}50%{transform:translateY(-1.1%)}}
+@keyframes bnfHmFloat{0%,100%{transform:none}50%{transform:translateY(-.9%) rotate(-1deg)}}
+
+/* ── 내비 : 히어로 바로 아래 한 줄 바 (진한 블루 바탕 · 흰 글자 · 가운데 세로선) ──
+   항목이 늘면 <li>만 추가 → 같은 폭으로 나눠 가진다 */
+.contents_div .bnf-toc{background:#0B2A99}
+.contents_div .bnf-toc ul{display:flex}
+.contents_div .bnf-toc li{position:relative;flex:1 1 0;min-width:0}
+.contents_div .bnf-toc li + li::before{
+  content:"";position:absolute;left:0;top:50%;height:16px;margin-top:-8px;width:1px;background:rgba(255,255,255,.35);
+}
+.contents_div .bnf-toc button{
+  display:block;width:100%;margin:0;padding:15px 8px;cursor:pointer;
+  -webkit-appearance:none;appearance:none;border:0;border-radius:0;background:transparent;
+  font-family:var(--bnf-head);font-size:16px;font-weight:700;letter-spacing:-.02em;line-height:1.2;
+  color:#fff;white-space:nowrap;transition:color .15s ease;
+}
+
+/* ── 인트로 ───────────────────────────────────────────────── */
+.contents_div .bnf-intro__tag{
+  display:inline-block;background:var(--bnf-cyan);color:#fff;
+  font-size:12px;font-weight:700;letter-spacing:-.01em;
+  padding:5px 11px;border-radius:99px;margin-bottom:14px;
+}
+
+.contents_div .bnf-intro h1{font-size:min(calc(clamp(22.5px, 6.8cqw, 24.5px) + 1px), calc((100cqw - var(--bnf-gut) * 2) / 11.9));   /* 모바일 : 한 줄에 맞게 폭 비례 축소 (글줄 ≈ 11.6em) */
+  font-weight:800;letter-spacing:-.04em;line-height:1.34;margin-bottom:0;word-break:keep-all;color:#3053CF}   /* 메모지 블루에서 채도만 낮춤 */
+
+/* ── 목차 ─────────────────────────────────────────────────── */
+
+.contents_div .bnf-intro{margin-bottom:26px}
+.contents_div .bnf-intro::after{display:none}
+
+/* ── 카드 ─────────────────────────────────────────────────── */
+.contents_div .bnf-card{position:relative;scroll-margin-top:10px}
+
+.contents_div .bnf-card{--bnf-theme:var(--bnf-red);--bnf-theme-hl:var(--bnf-red-hl)}
+.contents_div .bnf-card.is-youth{--bnf-theme:var(--bnf-pink);--bnf-theme-hl:var(--bnf-pink-hl)}
+.contents_div .bnf-card.is-biz{--bnf-theme:var(--bnf-green-accent);--bnf-theme-hl:var(--bnf-green-hl)}
+.contents_div .bnf-card.is-etc{--bnf-theme:var(--bnf-violet-accent);--bnf-theme-hl:var(--bnf-violet-hl)}
+/* 칩 줄 : 한 줄 고정. 블록 + 인라인 칩으로 둬야 아이콘 float의 shape-outside를 따라 전체 폭을 쓴다 */
+.contents_div .bnf-card__meta{display:block;white-space:nowrap;line-height:0;margin-bottom:12px}
+.contents_div .bnf-card__meta > *{display:inline-block;vertical-align:top;line-height:1.62}
+.contents_div .bnf-card__meta > * + *{margin-left:7px}
+.contents_div .bnf-chip{font-size:12px;font-weight:700;padding:5px 10px;border-radius:6px;background:#3053CF;color:#fff}   /* 일반시민 : 메모지 블루에서 채도만 낮춤 + 흰 글자 (대비 4.5 이상) */
+.contents_div .bnf-chip.is-youth{background:var(--bnf-pink-soft);color:var(--bnf-pink-deep)}
+.contents_div .bnf-chip.is-biz{background:var(--bnf-green-soft);color:var(--bnf-green)}
+.contents_div .bnf-chip.is-etc{background:var(--bnf-violet-soft);color:var(--bnf-violet)}
+.contents_div .bnf-dday{font-size:12px;font-weight:700;padding:5px 10px;border-radius:6px;background:var(--bnf-ink);color:#fff}
+.contents_div .bnf-dday.is-off{background:#E6EBF3;color:var(--bnf-gray)}
+
+.contents_div .bnf-card__head{display:flow-root;margin-bottom:20px}
+
+.contents_div .bnf-card__body > :last-child{margin-bottom:0}
+
+.contents_div .bnf-card__head:not(:has(.bnf-poster)){display:block}
+
+.contents_div .bnf-card__meta{max-width:100%}
+
+.contents_div .bnf-card__body > .bnf-lede:first-of-type{clear:right}
+
+.contents_div .bnf-poster{
+  position:relative;
+  float:right;margin:0 0 14px 16px;
+  width:auto;
+  max-width:clamp(83px, calc(100% - 218px), 108px);
+  border-radius:12px;overflow:hidden;
+  background:#EFF3F9;border:1px solid var(--bnf-line);
+}
+
+.contents_div .bnf-poster:not(:has(img)){aspect-ratio:1 / 1.414}
+
+/* 이미지 미삽입·로드 실패 : 포스터 비율 빈 프레임으로 고정 (스크립트가 is-empty 부여) */
+.contents_div .bnf-poster.is-empty{aspect-ratio:1 / 1.414;width:clamp(83px, calc(100% - 218px), 108px)}
+.contents_div .bnf-poster.is-empty img{position:absolute;inset:0;width:100%;height:100%;max-height:none;opacity:0}
+.contents_div .bnf-poster.is-empty .bnf-poster__hint{display:none}
+.contents_div .bnf-poster.is-empty .bnf-poster__btn{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;cursor:default}
+/* 로딩 중 (스크립트가 is-wait 부여) : 포스터 비율 프레임을 미리 잡고 '크게 보기'는 바로 보여 준다 */
+.contents_div .bnf-poster.is-wait{aspect-ratio:1 / 1.414;width:clamp(83px, calc(100% - 218px), 108px)}
+.contents_div .bnf-poster.is-wait img{position:absolute;inset:0;width:100%;height:100%;max-height:none;object-fit:cover}
+.contents_div .bnf-poster.is-wait .bnf-poster__btn{position:absolute;inset:0;width:100%;height:100%}
+
+.contents_div .bnf-poster::after{
+  content:"포스터";
+  position:absolute;inset:0;z-index:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12.5px;font-weight:600;letter-spacing:-.02em;color:#A7B3C8;
+}
+.contents_div .bnf-poster img{
+  position:relative;z-index:1;
+  display:block;width:auto;max-width:100%;height:auto;max-height:136px;
+}
+
+/* ── 아이콘 (포스터 없는 카드) : 배경 투명, 모든 아이콘 같은 높이·뷰 폭에 비례 (폭은 아이콘 비율대로) ── */
+.contents_div .bnf-icon{
+  --bnf-icon-h:clamp(76px, 24cqw, 150px);
+  --bnf-meta-off:calc(12px * 1.62 + 10px + 12px);   /* 칩 높이 + 칩 줄 아래 여백 */
+  position:relative;float:right;margin:var(--bnf-meta-off) 0 14px 16px;
+  shape-outside:inset(var(--bnf-meta-off) 0 0 0) margin-box;   /* 모바일 : 칩 줄은 아이콘 위로 지나가 한 줄 유지 */
+  /* 모바일 : 폭 기준. 제목 첫 줄('친환경자동차 오너라면?' ≈ 9.4em)이 아이콘 옆에 들어가도록 남는 폭만큼만 */
+  height:auto;background:transparent;
+  /* 모바일 크기 : 화면 폭에 비례해 커지기만 한다 (350 → 375 → 420 … 순서대로 점점 크게)
+     --bnf-icon-s = 아이콘의 '면적 기준 크기'(가로·세로 기하평균). 폭 = s × √(가로/세로)
+     → 가로로 긴 버스·정사각에 가까운 트로피도 화면에서 비슷한 덩치로 보인다. √비율(--bnf-icon-r)은 스크립트가 원본 크기로 계산 */
+  --bnf-icon-s:clamp(56px, calc(2px + 19cqw), 100px);
+  width:calc(var(--bnf-icon-s) * var(--bnf-icon-r, 1.15) * var(--bnf-icon-m, 1));
+}
+@media (max-width:500px){ .contents_div .bnf-icon{--bnf-icon-m:1.1} }   /* 500 이하 : 아이콘 10% 크게 */
+@media (max-width:420px){ .contents_div .bnf-icon--trophy{--bnf-icon-dy:-10px} }   /* 420 이하 : 공모전 아이콘 10px 아래로 (트로피가 떠 보여서) */
+/* 아이콘별 보정 : --bnf-icon-k 웹 크기 배율 (모바일은 위의 면적 기준 규칙으로 통일) */
+.contents_div .bnf-icon img{display:block;width:100%;max-width:none;height:auto}
+/* 아이콘 그림자 : 투명 배경 모양을 따라가는 drop-shadow */
+.contents_div .bnf-icon img{filter:drop-shadow(0 4px 6px rgba(20,40,110,.16)) drop-shadow(0 10px 18px rgba(20,40,110,.12))}
+.contents_div .bnf-icon.is-empty{aspect-ratio:1.6 / 1}
+.contents_div .bnf-icon.bnf-icon--off{display:none}   /* 보관용 아이콘 숨김 */
+.contents_div .bnf-icon.is-empty img{position:absolute;inset:0;width:100%;opacity:0}
+
+@supports not (aspect-ratio:1/1.414){
+  .contents_div .bnf-poster:not(:has(img)),
+  .contents_div .bnf-poster.is-empty{height:0;padding-top:141.4%}
+}
+
+.contents_div .bnf-poster__btn{
+  display:block;width:auto;margin:0;padding:0;border:0;
+  background:none;font:inherit;color:inherit;cursor:zoom-in;
+  -webkit-appearance:none;appearance:none;
+}
+.contents_div .bnf-poster__hint{
+  position:absolute;right:6px;bottom:6px;z-index:2;
+  display:flex;align-items:center;gap:3px;
+  padding:4px 8px 4px 6px;border-radius:999px;
+  background:rgba(20,28,58,.86);color:#fff;
+  font-size:10.5px;font-weight:700;letter-spacing:-.03em;line-height:1;
+  box-shadow:0 1px 4px rgba(20,28,58,.35);
+  backdrop-filter:blur(2px);
+}
+
+.contents_div .bnf-poster__hint::before{
+  content:"";flex:none;width:12px;height:12px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none' stroke='%23FFFFFF' stroke-width='2.2' stroke-linecap='round'%3E%3Ccircle cx='7' cy='7' r='4.4'/%3E%3Cpath d='M10.4 10.4L13.6 13.6'/%3E%3Cpath d='M5.2 7H8.8'/%3E%3Cpath d='M7 5.2V8.8'/%3E%3C/svg%3E");
+  background-size:contain;background-repeat:no-repeat;background-position:center;
+}
+
+.contents_div .bnf-lightbox{
+  width:auto;max-width:min(92vw, 720px);max-height:92vh;
+  margin:auto;padding:0;border:0;border-radius:14px;overflow:visible;
+  background:transparent;
+}
+.contents_div .bnf-lightbox::backdrop{background:rgba(10,16,40,.88)}
+.contents_div .bnf-lightbox img{
+  display:block;width:100%;height:auto;max-height:88vh;
+  object-fit:contain;border-radius:12px;background:#fff;
+}
+.contents_div .bnf-lightbox__close{
+  display:block;margin:10px auto 0;padding:9px 20px;
+  border:0;border-radius:999px;cursor:pointer;
+  background:#fff;color:var(--bnf-ink);
+  font-size:13.5px;font-weight:700;letter-spacing:-.03em;
+}
+
+@supports not selector(dialog::backdrop){
+  .contents_div .bnf-lightbox[open]{
+    position:fixed;inset:0;z-index:9999;
+    display:flex;flex-direction:column;justify-content:center;
+    max-width:none;max-height:none;padding:5vw;
+    background:rgba(10,16,40,.88);
+  }
+}
+
+.contents_div .bnf-card h2{font-size:calc(clamp(16px, calc(1.6px + 5cqw), 22px) + 2px);font-weight:800;letter-spacing:-.045em;line-height:1.32;margin-bottom:10px;word-break:keep-all}
+
+.contents_div .bnf-card h2 strong{font-weight:800}
+
+.contents_div .bnf-lede .bnf-hl{
+  font-weight:700;color:var(--bnf-ink);
+  background-image:linear-gradient(180deg, transparent 62%, var(--bnf-theme-hl) 62%);
+  -webkit-box-decoration-break:clone;box-decoration-break:clone;
+  padding:0 2px;
+}
+.contents_div .bnf-lede{font-size:clamp(13px, calc(5.15px + 2.727cqw), 14.5px);color:var(--bnf-gray);margin-bottom:20px}
+@container bnfroot (min-width:388px){
+  .contents_div .bnf-lede{font-size:clamp(14.5px, calc(11.27px + .8333cqw), 15px)}
+}
+.contents_div .bnf-lede + .bnf-lede{margin-top:-10px}
+
+.contents_div .bnf-point{
+  display:flex;flex-wrap:wrap;align-items:baseline;column-gap:10px;row-gap:3px;
+  background:var(--bnf-red-soft);border:1px solid var(--bnf-red-line);border-radius:14px;
+  padding:15px 17px;margin-bottom:20px;
+}
+
+.contents_div .bnf-point b{font-size:clamp(18.5px, 5.2cqw, 20.5px);font-weight:800;letter-spacing:-.04em;color:var(--bnf-red-deep);line-height:1.3}
+.contents_div .bnf-point span{font-size:12.5px;color:var(--bnf-red-deep);font-weight:600;line-height:1.5}
+.contents_div .bnf-point.is-youth{background:var(--bnf-pink-soft);border-color:var(--bnf-pink-line)}
+.contents_div .bnf-point.is-youth b,
+.contents_div .bnf-point.is-youth span{color:var(--bnf-pink-deep)}
+.contents_div .bnf-point.is-biz{background:var(--bnf-green-soft);border-color:var(--bnf-green-line)}
+.contents_div .bnf-point.is-biz b,
+.contents_div .bnf-point.is-biz span{color:var(--bnf-green)}
+.contents_div .bnf-point.is-etc{background:var(--bnf-violet-soft);border-color:var(--bnf-violet-line)}
+.contents_div .bnf-point.is-etc b,
+.contents_div .bnf-point.is-etc span{color:var(--bnf-violet)}
+
+/* ── 정보 목록 ────────────────────────────────────────────── */
+.contents_div .bnf-card dl>div{display:flex;gap:14px;padding:10px 0;border-top:1px solid var(--bnf-line);line-height:1.64}
+.contents_div .bnf-card dl>div:first-child{border-top:0;padding-top:0}
+
+.contents_div .bnf-card dt{
+  flex:none;width:66px;font-weight:700;color:var(--bnf-gray);letter-spacing:-.02em;
+  font-size:13.5px;
+  font-size:clamp(12.5px, 3.6cqw, 14.5px);
+}
+.contents_div .bnf-card dd{
+  flex:1;min-width:0;
+  font-weight:400;
+  letter-spacing:-.02em;word-break:keep-all;
+  font-size:14px;
+  font-size:clamp(13px, calc(5.15px + 2.727cqw), 14.5px);   /* 본문과 동일 */
+}
+@container bnfroot (min-width:388px){
+  .contents_div .bnf-card dd{font-size:clamp(14.5px, calc(11.27px + .8333cqw), 15px)}
+}
+
+.contents_div .bnf-card dd em{font-style:normal;font-weight:700;color:inherit;white-space:nowrap}   /* 항목명은 쪼개지지 않게 */
+
+.contents_div .bnf-card dd ul{list-style:none;margin:0;padding-left:0}
+.contents_div .bnf-card dd li{display:flex;gap:7px}
+.contents_div .bnf-card dd li::before{
+  content:"";flex:none;
+  width:14px;height:14px;margin-top:.32em;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none' stroke='%231A4BFF' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3.2 8.6l3.4 3.4L12.8 4.6'/%3E%3C/svg%3E");
+  background-size:contain;background-repeat:no-repeat;background-position:center;
+}
+.contents_div .bnf-card.is-youth dd li::before{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none' stroke='%23C9961F' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3.2 8.6l3.4 3.4L12.8 4.6'/%3E%3C/svg%3E");
+}
+.contents_div .bnf-card.is-biz dd li::before{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none' stroke='%232E9E66' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3.2 8.6l3.4 3.4L12.8 4.6'/%3E%3C/svg%3E");
+}
+.contents_div .bnf-card.is-etc dd li::before{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none' stroke='%23E8546B' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3.2 8.6l3.4 3.4L12.8 4.6'/%3E%3C/svg%3E");
+}
+
+.contents_div .bnf-card dd li > .bnf-liln{min-width:0}
+/* 가운뎃점 목록 : 체크 대신 작은 점 (카드 테마색) */
+.contents_div .bnf-card dd ul.bnf-dot > li{gap:8px}
+.contents_div .bnf-card dd ul.bnf-dot > li::before{
+  width:4px;height:4px;margin-top:.72em;border-radius:50%;
+  background-image:none;background-color:var(--bnf-theme);
+}
+/* 번호 목록 : 체크 대신 원형 숫자 (텍스트와 가로 정렬) */
+.contents_div .bnf-card dd ul.bnf-numl{counter-reset:bnfn}
+.contents_div .bnf-card dd ul.bnf-numl > li{counter-increment:bnfn}
+.contents_div .bnf-card dd ul.bnf-numl > li::before{
+  content:counter(bnfn);flex:0 0 auto;
+  display:flex;align-items:center;justify-content:center;
+  width:15.2px;height:15.2px;margin-top:.25em;border-radius:50%;   /* 모바일 : 웹 16px의 95% */
+  background:var(--bnf-theme);background-image:none;color:#fff;
+  font-size:9.5px;font-weight:700;line-height:1;letter-spacing:0;
+}
+.contents_div .bnf-nw{white-space:nowrap;overflow-wrap:normal;word-break:keep-all}
+.contents_div .bnf-card dd .bnf-sub{margin-top:2px}
+/* 접수처 : 모바일은 '지역 팩스' 다음 줄에 이메일(들여쓰기 없음), 웹은 한 줄에 '|'로 구분 */
+.contents_div .bnf-card dd .bnf-sub .bnf-liln{display:block}
+.contents_div .bnf-card dd .bnf-sub .bnf-mail{display:block}
+
+.contents_div .bnf-tel{
+  font-weight:700;color:var(--bnf-ink);white-space:nowrap;
+  border-bottom:1.5px solid var(--bnf-line);
+  transition:color .15s ease,border-color .15s ease;
+}
+
+.contents_div .bnf-note{display:block;margin-top:4px;font-size:12px;font-weight:400;color:var(--bnf-gray);line-height:1.58}
+.contents_div .bnf-card .bnf-blue-txt{color:var(--bnf-cyan)}
+.contents_div .bnf-card strong.bnf-blue-txt{font-weight:700}
+.contents_div .bnf-card .bnf-note.bnf-blue-txt{margin-top:0;margin-bottom:9px}
+
+/* ── 버튼 ─────────────────────────────────────────────────── */
+.contents_div .bnf-btn{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  margin-top:22px;padding:13px 15px;min-height:53px;border-radius:14px;
+  background:var(--bnf-ink);color:#fff;font-size:16px;font-weight:700;letter-spacing:-.03em;
+  position:relative;overflow:hidden;
+  transition:background-color .18s ease,color .18s ease;
+}
+
+.contents_div .bnf-btn::after{
+  content:"→";flex:none;font-size:15px;line-height:1;font-weight:700;
+  width:0;opacity:0;margin-left:-8px;
+  transform:translateX(-4px);overflow:hidden;pointer-events:none;
+  transition:width .18s ease,opacity .18s ease,margin-left .18s ease,transform .18s ease;
+}
+.contents_div .bnf-btn.is-line{background:#fff;color:var(--bnf-ink);border:1px solid var(--bnf-ink);
+  padding-top:12px;padding-bottom:12px}   /* 1px 테두리만큼 상하 패딩을 덜어 높이를 같게 맞춘다 */
+.contents_div .bnf-card > dl + .bnf-btnrow{margin-top:22px}
+.contents_div .bnf-btnrow{display:flex;gap:8px}
+.contents_div .bnf-btnrow .bnf-btn{flex:1;margin-top:0;padding-left:10px;padding-right:10px}
+/* 보조 문구가 붙는 넓은 버튼 */
+.contents_div .bnf-btnrow .bnf-btn--wide{flex:1.7;gap:3px}
+.contents_div .bnf-btn__sub{font-size:.82em;font-weight:500;opacity:.85;white-space:nowrap}
+/* 보조 문구 붙는 버튼 : 글자와 보조 문구 사이를 붙인다 */
+.contents_div .bnf-btnrow .bnf-btn--tight{gap:2px}
+.contents_div .bnf-btnrow .bnf-btn--tight::after{margin-left:-2px}
+
+/* ── 태그 ─────────────────────────────────────────────────── */
+.contents_div .bnf-tags ul{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
+.contents_div .bnf-tags li{
+  font-size:12.5px;font-weight:400;letter-spacing:-.02em;line-height:1;
+  padding:7px 11px;border-radius:99px;background:#fff;
+  border:1px solid var(--bnf-tag-line);color:var(--bnf-tag-ink);
+}
+
+@media (hover:hover) and (pointer:fine){
+
+
+  .contents_div .bnf-toc button:hover{color:#EDED82}
+  .contents_div .bnf-tel:hover{color:var(--bnf-blue-deep);border-bottom-color:var(--bnf-blue-deep)}
+
+  .contents_div .bnf-btn:hover{background:#0B2A99}
+  .contents_div .bnf-btn:hover::after{width:1em;opacity:1;margin-left:0;transform:translateX(0)}
+  .contents_div .bnf-btn.is-line:hover{background:var(--bnf-ink);color:#fff}
+}
+
+.contents_div .bnf-toc button:active{color:#EDED82}
+.contents_div .bnf-btn:active{background:#0B2A99}
+.contents_div .bnf-btn.is-line:active{background:var(--bnf-ink);color:#fff}
+.contents_div .bnf-tel:active{color:var(--bnf-blue-deep);border-bottom-color:var(--bnf-blue-deep)}
+
+.contents_div .bnf-br450{display:none}
+.contents_div .bnf-brv450{display:none}
+/* 뷰포트 410 이하 줄바꿈 고정 : br 대신 span 의사요소 사용 (CMS의 br 강제 규칙 영향 없음) */
+.contents_div .bnf-brv410::before{content:' '}
+@media (max-width:410px){
+  .contents_div .bnf-brv410::before{content:'\A';white-space:pre}
+}
+/* 제목 줄 고정 : 빈 span 대신 내용 있는 span을 블록으로 내려 줄바꿈 (CMS가 빈 태그를 지워도 안전) */
+.contents_div .bnf-blk{display:block}   /* 모든 폭에서 다음 줄로 */
+/* 카드 제목 줄 고정 : 뷰포트 501 이상 2줄 / 500 이하 3줄 (해당 덩어리를 블록으로 내려 줄바꿈) */
+.contents_div .bnf-blk500{display:inline}
+@media (max-width:500px){ .contents_div .bnf-blk500{display:block} }
+/* 500 이하(제목 3줄 구간) : 카드 제목 2px 더 크게 · 3px 아래로 — 420에서 끊기지 않게 3줄 구간 전체에 적용 */
+@media (max-width:500px){ .contents_div .bnf-card h2{font-size:calc(clamp(16px, calc(1.6px + 5cqw), 22px) + 4px);position:relative;top:3px} }
+/* 500 이하 : 굵은 본제목을 위로, 앞 문구를 맨 아래로 (버스 카드 : 광주 시내버스 / 노선 개편 / 더 편리하고 더 빠르게!) */
+@media (max-width:500px){
+  .contents_div .bnf-h2-swap500{display:flex;flex-direction:column;align-items:flex-start}
+  .contents_div .bnf-h2-swap500 > strong{order:-1}
+}
+.contents_div .bnf-blkmo{display:block}   /* 모바일에서 다음 줄로 */
+@container bnfroot (min-width:600px){
+  .contents_div .bnf-blkmo{display:inline}
+}
+@supports not (container-type:inline-size){
+  @media (min-width:640px){ .contents_div .bnf-blkmo{display:inline} }
+}
+@media (max-width:420px){   /* 뷰포트 420 이하에서 다음 줄로 */
+  .contents_div .bnf-blk420{display:block}
+}
+@media (max-width:374px){   /* 374 이하 : 배지가 화면 폭에 맞춰 조금씩 작아짐 (375에서 12px → 최소 10px) */
+  .contents_div .bnf-chip,
+  .contents_div .bnf-dday{font-size:max(10px, 3.2vw);padding:1.333vw 2.667vw;border-radius:1.6vw}
+  .contents_div .bnf-card__meta > * + *{margin-left:1.867vw}
+  .contents_div .bnf-icon{--bnf-meta-off:calc(max(10px, 3.2vw) * 1.62 + 2.667vw + 12px)}
+}
+@media (min-width:350px) and (max-width:374px){   /* 350~374 : 카드 제목 2px 작게 (420 이하 +2px 상쇄) */
+  .contents_div .bnf-card h2{font-size:calc(clamp(16px, calc(1.6px + 5cqw), 22px) + 2px)}
+}
+/* 웹 전용 줄바꿈 : 기본은 공백 한 칸, 웹(≥600)에서만 줄바꿈 */
+.contents_div .bnf-brw::before{content:' '}
+/* 리드문 문단 나눔 : 600 이하에서만 */
+.contents_div .bnf-lp{display:none}
+@media (max-width:600px){
+  .contents_div .bnf-lp{display:block;height:.7em}
+}
+@media (max-width:450px){   /* 뷰포트(패딩 포함) 450 이하 줄바꿈 고정 */
+  .contents_div .bnf-brv450{display:inline}
+}
+@media (max-width:350px){   /* 13개 시군 목록 : 좁은 화면에서도 7·6 두 줄 유지 */
+  .contents_div .bnf-note-gun{letter-spacing:-.07em}
+}
+@media (min-width:361px) and (max-width:390px){   /* 첫 줄이 넘치지 않게 자간만 살짝 */
+  .contents_div .bnf-fit{letter-spacing:-.075em}
+}
+
+
+/* ── 웹(≥600px) : 상한 800px, 좌우 여백 6.25%(800에서 50px) ── */
+@container bnfroot (min-width:600px){
+
+  .contents_div .bnf-card dd ul.bnf-numl > li::before{width:16px;height:16px;margin-top:.22em;font-size:10px}   /* 웹 : 넘버 원 원래 크기 */
+
+  .contents_div .bnf-page{
+    /* 바탕 : 달력 화이트블루 → 아래로 갈수록 진하게 */
+    background:linear-gradient(180deg,#EEF4FB 0%,#C9D9EF 100%);
+
+    --bnf-pad:min(40px, 5cqw);
+    --bnf-h1:min(38px, 4.75cqw);
+    --bnf-h3:min(32px, 4cqw);
+    --bnf-dt:min(96px, 12cqw);
+    --bnf-poster-w:min(190px, 23.75cqw);
+  }
+
+  .contents_div .bnf-card{
+    background:#fff;border:0;border-radius:26px;
+    box-shadow:0 6px 22px rgba(20,50,140,.10);
+    padding:var(--bnf-pad);overflow:visible;
+    margin:20px var(--bnf-gut);
+  }
+
+  /* 카드 보더 : 연한 1px */
+  .contents_div .bnf-card{border:1px solid var(--bnf-line)}
+
+  .contents_div .bnf-hero{padding:0;margin:0}
+  .contents_div .bnf-toc button{padding:19px 12px;font-size:18px}   /* 웹 : 내비 바 높이·글자 */
+  .contents_div .bnf-card + .bnf-card{margin-top:21px}   /* 카드 간 갭 */
+  .contents_div .bnf-hero + .bnf-intro{padding-top:46px;margin-bottom:0}
+  .contents_div .bnf-hero + .bnf-intro::after{display:none}
+
+  .contents_div .bnf-intro{
+    margin:0;padding:36px var(--bnf-gut) 24px;
+    background:none;box-shadow:none;border-radius:0;
+  }
+
+  .contents_div .bnf-intro::after,
+  .contents_div .bnf-card::after{display:none}
+
+  .contents_div .bnf-brw::before{content:'\A';white-space:pre}
+  .contents_div .bnf-brw--wide::before{content:' ';white-space:normal}
+
+  .contents_div .bnf-intro__tag{font-size:13px;padding:6px 13px;margin-bottom:18px}
+  .contents_div .bnf-intro h1{font-size:var(--bnf-h1);line-height:1.3}
+
+
+  .contents_div .bnf-card__head{
+    display:flow-root;
+    margin-bottom:26px;
+  }
+
+  .contents_div .bnf-card__body > .bnf-lede:first-of-type{clear:none}
+  .contents_div .bnf-poster{
+    float:right;width:var(--bnf-poster-w);max-width:none;
+    margin:0 0 20px 28px;border-radius:14px;
+  }
+  .contents_div .bnf-poster.is-empty,
+  .contents_div .bnf-poster.is-wait{width:var(--bnf-poster-w)}
+  .contents_div .bnf-icon{margin:10px 0 20px 28px;shape-outside:none;height:var(--bnf-icon-h);width:auto;--bnf-icon-h:calc(clamp(76px, 24cqw, 150px) * .855 * var(--bnf-icon-k, 1))}   /* 웹 : 5% 축소 후 10% 추가 축소 */
+  .contents_div .bnf-icon img{width:auto;height:100%}
+  .contents_div .bnf-icon--w85{--bnf-icon-k:.85}   /* 웹 : 축산농가·공모전 아이콘 85% */
+  .contents_div .bnf-icon--bus{--bnf-icon-k:.8}   /* 웹 : 버스 아이콘 80% */
+  .contents_div .bnf-icon--trophy{margin-top:17px}   /* 웹 : 공모전 아이콘 7px 더 아래로 (혼자 떠 보여서) — 기본 10px + 7px */
+  .contents_div .bnf-icon.is-empty{aspect-ratio:auto;width:var(--bnf-icon-h)}
+  .contents_div .bnf-poster__btn{width:100%}
+  .contents_div .bnf-poster img{width:100%;max-width:none;max-height:none}
+  .contents_div .bnf-poster::after{font-size:13.5px}
+
+  .contents_div .bnf-poster__hint{right:6px;bottom:6px;gap:3px;padding:4px 8px 4px 6px;font-size:11px}
+  .contents_div .bnf-poster__hint::before{width:11px;height:11px}
+
+  .contents_div .bnf-card__meta{margin-bottom:16px}
+  .contents_div .bnf-card__meta > * + *{margin-left:8px}
+  .contents_div .bnf-chip,
+  .contents_div .bnf-dday{font-size:13px;padding:6px 12px}
+  .contents_div .bnf-card h2{font-size:var(--bnf-h3);line-height:1.3;margin-bottom:14px;padding-top:2px;letter-spacing:-.02em}   /* 웹 : 획 뭉침 완화 (모바일은 줄바꿈 유지 위해 -.045em) */
+  .contents_div .bnf-lede{font-size:16px;max-width:60ch;margin-bottom:26px;line-height:1.72}
+
+  .contents_div .bnf-point{padding:20px 24px;margin-bottom:26px;column-gap:14px;row-gap:5px}
+  .contents_div .bnf-point b{font-size:23px}
+  .contents_div .bnf-point span{font-size:15px}
+
+  .contents_div .bnf-card dl>div{gap:24px;padding:13px 0;line-height:1.75}
+  .contents_div .bnf-card dt{width:var(--bnf-dt);font-size:15px}
+  .contents_div .bnf-card dd{flex:1;min-width:0;font-size:15.5px}
+
+  .contents_div .bnf-card dd li{gap:9px;line-height:1.6}
+  .contents_div .bnf-card dd li::before{margin-top:.35em}
+  .contents_div .bnf-card dd ul li + li{margin-top:4px}
+  /* 체크 목록 2열(웹 전용) : 3행 기준, 위→아래로 채움 */
+  .contents_div .bnf-card dd ul.bnf-cols2{display:grid;grid-auto-flow:column;grid-template-rows:repeat(3,auto);grid-auto-columns:max-content;column-gap:36px;row-gap:4px}
+  .contents_div .bnf-card dd ul.bnf-cols2 li + li{margin-top:0}
+  .contents_div .bnf-card dd .bnf-sub .bnf-liln{display:inline}
+  .contents_div .bnf-card dd .bnf-sub .bnf-mail{display:inline}
+  .contents_div .bnf-card dd .bnf-sub .bnf-mail::before{content:"|";margin:0 .55em 0 .25em;color:#C3CEDF;font-weight:400}
+  .contents_div .bnf-note{margin-top:7px;line-height:1.65}
+  .contents_div .bnf-card .bnf-note.bnf-blue-txt{margin-top:3px}
+
+  .contents_div .bnf-btn{margin-top:28px;max-width:420px;margin-left:auto;margin-right:auto;
+    padding-top:15px;padding-bottom:15px;min-height:56px}
+  .contents_div .bnf-btn.is-line{padding-top:14px;padding-bottom:14px}
+  .contents_div .bnf-btnrow{max-width:420px;margin-left:auto;margin-right:auto;gap:10px}
+  .contents_div .bnf-btnrow .bnf-btn{max-width:none;margin-left:0;margin-right:0}
+
+  .contents_div .bnf-tags{
+    margin:20px 0 0;padding:40px var(--bnf-gut) 44px;
+    background:none;box-shadow:none;border-radius:0;overflow:visible;
+  }
+
+  .contents_div .bnf-tags li{font-size:13.5px;padding:8px 13px}
+}
+
+/* ── 좁은 모바일 ──────────────────────────────────────────── */
+@container bnfroot (min-width:760px){
+  .contents_div .bnf-brw--wide::before{content:'\A';white-space:pre}
+}
+@media (max-width:450px){
+  .contents_div .bnf-br450{display:inline}
+}
+@container bnfroot (max-width:418px){
+  .contents_div .bnf-br450{display:inline}
+}
+@media (max-width:350px){
+  .contents_div .bnf-btnrow{gap:6px}
+  .contents_div .bnf-btnrow .bnf-btn{
+    font-size:13px;letter-spacing:-.05em;padding-left:8px;padding-right:8px;white-space:nowrap;
+  }
+}
+/* 버튼 2개 나란히 : 버튼명이 두 줄로 깨지지 않게 */
+@container bnfroot (max-width:430px){
+  .contents_div .bnf-btnrow .bnf-btn{font-size:14.5px;letter-spacing:-.04em;white-space:nowrap}
+  .contents_div .bnf-btnrow .bnf-btn--tight .bnf-btn__sub{font-size:.72em}
+}
+@container bnfroot (max-width:318px){
+  .contents_div .bnf-btnrow{gap:6px}
+  .contents_div .bnf-btnrow .bnf-btn{
+    font-size:13px;letter-spacing:-.05em;padding-left:8px;padding-right:8px;white-space:nowrap;
+  }
+}
+@container bnfroot (max-width:480px){
+  .contents_div .bnf-page{--bnf-gut:15px}
+  .contents_div .bnf-card dl>div{gap:8px}
+  .contents_div .bnf-card dt{width:58px}
+}
+@container bnfroot (max-width:340px){
+  .contents_div .bnf-poster__hint{font-size:0;gap:0;padding:5px}
+  .contents_div .bnf-poster__hint::before{width:14px;height:14px}
+}
+@container bnfroot (max-width:360px){
+  .contents_div .bnf-card dd ul li{
+    gap:5px;font-size:.93em;letter-spacing:-.065em;
+  }
+  .contents_div .bnf-card dd ul:not(.bnf-numl):not(.bnf-dot) li::before{width:12px;height:12px;margin-top:.35em}
+}
+
+/* ≤350px : 정보목록 본문만 한 단계 축소 */
+@media (max-width:350px){
+  .contents_div .bnf-card dd{font-size:clamp(11.5px, 3.9cqw, 13px)}
+}
+
+/* ≤410px : 나브 위아래 여백 −3px */
+@media (max-width:410px){
+  .contents_div .bnf-intro{margin-bottom:23px}
+}
+
+@supports not (container-type:inline-size){
+  @media (min-width:640px){
+    .contents_div .bnf-page{background:linear-gradient(180deg,#EEF4FB 0%,#C9D9EF 100%)}
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+  .contents_div *{transition:none!important;animation:none!important}
+  .contents_div .bnf-hm__pc{display:none!important}
+  .contents_div .bnf-hm__title,
+  .contents_div .bnf-hm__deco,
+  .contents_div .bnf-hm__memo{visibility:visible!important}
+}
+
+/* ── 스크롤 등장 : 히어로 아래 블록 (프리픽스 bnf-rv) ──────────
+   .is-bnf-rv 는 스크립트가 붙인다 → JS 미동작 시 전부 그냥 보인다
+   ─────────────────────────────────────────────────────────── */
+.contents_div.is-bnf-rv .bnf-intro,
+.contents_div.is-bnf-rv .bnf-card,
+.contents_div.is-bnf-rv .bnf-tags{
+  opacity:0;
+  transform:translate3d(0,20px,0);
+  will-change:opacity, transform;
+}
+
+.contents_div.is-bnf-rv .bnf-intro.is-bnf-in,
+.contents_div.is-bnf-rv .bnf-card.is-bnf-in,
+.contents_div.is-bnf-rv .bnf-tags.is-bnf-in{
+  opacity:1;
+  transform:translate3d(0,0,0);
+  transition:opacity 600ms cubic-bezier(.22,.68,.36,1),
+             transform 600ms cubic-bezier(.22,.68,.36,1);
+  will-change:auto;
+}
+
+@media (prefers-reduced-motion:reduce){
+  .contents_div.is-bnf-rv .bnf-intro,
+  .contents_div.is-bnf-rv .bnf-card,
+  .contents_div.is-bnf-rv .bnf-tags{
+    opacity:1!important;
+    transform:none!important;
+  }
+}
+
+</style>
+
+<script>
+/* 스크롤 등장 활성화 — 콘텐츠가 그려지기 전에 실행되어야 깜빡임이 없다 */
+(function(){
+  var root = document.currentScript && document.currentScript.closest('.contents_div');
+  if(!root) return;
+  if(!('IntersectionObserver' in window) || !('Promise' in window)) return;
+  if(window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  root.classList.add('is-bnf-rv');
+  root.classList.add('is-bnf-hm');   /* 히어로 모션 준비 */
+})();
+</script>
+
+<!-- TEST: 확인 후 이 줄 삭제 --><div class="jngj-test-spacer" aria-hidden="true" style="height:900px;max-width:800px;margin:auto;display:grid;place-items:center;border:1px solid #cb9;background:linear-gradient(to top right,#0000 calc(50% - 1px),#cb9,#0000 calc(50% + 1px)),linear-gradient(to top left,#0000 calc(50% - 1px),#cb9,#0000 calc(50% + 1px)) #fffdef;font:700 16px sans-serif;color:#7E5E50"><b style="padding:10px 20px;background:#fffdef;border:1px solid #cb9;border-radius:99px">테스트 영역 · 아래로 스크롤 ↓</b></div>
+<article class="bnf-page" lang="ko">
+
+  <header class="bnf-hero">
+    <div class="bnf-hero__frame">
+      <!-- 히어로 레이어 4장 : 1600×1351 원본 (src만 각자 한 줄 · img/ 경로 일괄 치환) -->
+      <div class="bnf-hm">
+        <img class="bnf-hm__bg" data-layer="bg"
+             src="img/히어로_배경.webp"
+             width="1600" height="1351" fetchpriority="high" loading="eager" decoding="async" alt="이번 주 챙겨야 할 전남광주 소식! — 광주 시내버스 노선 개편 10/31, 축산농가 지원">
+        <img class="bnf-hm__memo" data-layer="memo"
+             src="img/히어로_메모.webp"
+             width="1600" height="1351" fetchpriority="high" loading="eager" decoding="async" alt="">
+        <img class="bnf-hm__title" data-layer="title"
+             src="img/히어로_텍스트.webp"
+             width="1600" height="1351" fetchpriority="high" loading="eager" decoding="async" alt="">
+        <div class="bnf-hm__pc bnf-hm__t1a" aria-hidden="true"><div class="bnf-hm__in"><img data-ly="title" alt=""></div></div>
+        <div class="bnf-hm__pc bnf-hm__t1b" aria-hidden="true"><div class="bnf-hm__in"><img data-ly="title" alt=""></div></div>
+        <div class="bnf-hm__pc bnf-hm__clk" aria-hidden="true"><div class="bnf-hm__in"><img data-ly="title" alt=""></div></div>
+        <div class="bnf-hm__pc bnf-hm__t2" aria-hidden="true"><div class="bnf-hm__in"><img data-ly="title" alt=""></div></div>
+        <div class="bnf-hm__pc bnf-hm__t3" aria-hidden="true"><div class="bnf-hm__in"><img data-ly="title" alt=""></div></div>
+        <img class="bnf-hm__deco" data-layer="deco"
+             src="img/히어로_요소.webp"
+             width="1600" height="1351" fetchpriority="high" loading="eager" decoding="async" alt="">
+        <div class="bnf-hm__pc bnf-hm__bus" aria-hidden="true"><div class="bnf-hm__in"><img data-ly="deco" alt=""></div></div>
+        <div class="bnf-hm__pc bnf-hm__b1" aria-hidden="true"><div class="bnf-hm__in"><img data-ly="deco" alt=""></div></div>
+        <div class="bnf-hm__pc bnf-hm__barn" aria-hidden="true"><div class="bnf-hm__in"><img data-ly="deco" alt=""></div></div>
+        <div class="bnf-hm__pc bnf-hm__b2" aria-hidden="true"><div class="bnf-hm__in"><img data-ly="deco" alt=""></div></div>
+      </div>
+
+    </div>
+    <nav class="bnf-toc" aria-label="이번 주 소식 바로가기">
+      <ul>
+        <li><button type="button" data-go="bnf-b1">일반시민</button></li>
+        <li><button type="button" class="is-biz" data-go="bnf-b2">축산농가</button></li>
+        <li><button type="button" class="is-youth" data-go="bnf-b3">공모전</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="bnf-intro">
+    <span class="bnf-intro__tag"><time datetime="2026-10-19">2026년 10월 4주차</time></span>
+    <h1>전남광주 이번 주 소식 모음</h1>
+  </section>
+
+  <article class="bnf-card" id="bnf-b1">
+    <div class="bnf-card__head">
+      <!-- 아이콘형 카드 : 안 쓰는 주에는 bnf-icon--off 클래스를 붙여 숨김(삭제 금지) -->
+      <figure class="bnf-icon bnf-icon--bus">
+        <img data-name="버스노선" width="1182" height="858" alt="" loading="eager" decoding="async"
+             src="img/버스노선.webp">
+      </figure>
+      <div class="bnf-card__body">
+        <div class="bnf-card__meta"><span class="bnf-chip">일반시민</span><span class="bnf-dday" data-start="2026-10-31" data-label="개편">10. 31.(토) 시행</span></div>
+        <h2 class="bnf-h2-swap500"><span class="bnf-nw">더 편리하고 더 빠르게!</span><strong class="bnf-blk"><span class="bnf-nw">광주 시내버스</span> <span class="bnf-nw bnf-blk500">노선 개편</span></strong></h2>
+        <p class="bnf-lede">달라진 교통 환경에 맞춰 광주 지역 시내버스가 <b class="bnf-hl">10월 31일부터 노선을 개편</b>해 운행합니다. 노선은 늘리고 배차 간격은 줄였어요. 달라진 노선 정보는 아래 버튼을 눌러 확인하세요!</p>
+      </div>
+    </div>
+    <div class="bnf-point"><b>노선 103개 → 115개</b><span>하루 운행 횟수 8,394회 → 8,929회</span></div>
+    <dl>
+      <div><dt>시행일</dt><dd><time datetime="2026-10-31">2026. 10. 31.(토)</time>부터</dd></div>
+      <div><dt>주요 내용</dt><dd>
+        <ul>
+          <li><span class="bnf-liln"><em>노선:</em> 103개 → 115개</span></li>
+          <li><span class="bnf-liln"><em>하루 운행 횟수:</em> 8,394회 → 8,929회</span></li>
+          <li><span class="bnf-liln">간선 노선 직선화, <span class="bnf-nw">혼잡·중복·장거리</span> <span class="bnf-nw">노선 조정</span></span></li>
+        </ul>
+      </dd></div>
+    </dl>
+    <div class="bnf-btnrow">
+      <a class="bnf-btn bnf-btn--tight" href="https://www.jeonnam-gwangju.go.kr/home/jngj/down/file08_261014.pdf" target="_blank" rel="noopener" aria-label="광주 버스 운행 정보(개편 노선 PDF) 열기">광주 버스 운행 정보<span class="bnf-btn__sub">(PDF)</span></a>
+      <a class="bnf-btn is-line" href="http://125.136.150.185:8603/renewal/line" target="_blank" rel="noopener" aria-label="개편 노선 검색">개편 노선 검색</a>
+    </div>
+  </article>
+
+  <article class="bnf-card is-biz" id="bnf-b2">
+    <div class="bnf-card__head">
+      <figure class="bnf-icon bnf-icon--w85">
+        <img data-name="축산농가" width="1090" height="865" alt="" loading="eager" decoding="async"
+             src="img/축산농가.webp">
+      </figure>
+      <div class="bnf-card__body">
+        <div class="bnf-card__meta"><span class="bnf-chip is-biz">축산농가</span><span class="bnf-dday" data-end="2026-10-28">10. 28.(수)까지</span></div>
+        <h2><span class="bnf-nw">축사 신축·개보수</span> <span class="bnf-nw bnf-blk500">융자 지원</span><strong class="bnf-blk"><span class="bnf-nw">28일까지 신청하세요</span></strong></h2>
+        <p class="bnf-lede">축산농가의 생산성을 높이고 가축 사육 환경을 개선하기 위해 <b class="bnf-hl">2027 축사시설현대화사업</b>을 실시합니다. 신축·개보수가 필요한 전남광주의 축산농가는 주목해 주세요!</p>
+      </div>
+    </div>
+    <div class="bnf-point is-biz"><b>사업비 80% 저리 융자</b><span>연 2% · 5년 거치 10년 상환</span></div>
+    <dl>
+      <div><dt>신청기한</dt><dd><time datetime="2026-10-28">2026. 10. 28.(수)</time>까지</dd></div>
+      <div><dt>지원내용</dt><dd>축사 신축·개보수와 사육·방역시설 개선 등에 필요한<span class="bnf-brw"></span><span class="bnf-nw">사업비의 80%를</span> 융자로 지원</dd></div>
+      <div><dt>금리</dt><dd>연 2%, 5년 거치 10년 상환<span class="bnf-note">※ 나머지 20%는 농가가 부담</span></dd></div>
+      <div><dt>지원대상</dt><dd>축산업 허가를 받거나 등록한 농가와 농업법인<span class="bnf-note">※ 신규: 해당 축종의 농장 실무경력이 3년 이상,<span class="bnf-blk">축산 관련 고등학교·대학 관련 학과 졸업생</span></span></dd></div>
+      <div><dt>지원분야</dt><dd>
+        <ul class="bnf-dot">
+          <li><span class="bnf-liln">신축·이전·개보수</span></li>
+          <li><span class="bnf-liln">급이·급수·전기·착유·환기시설</span></li>
+          <li><span class="bnf-liln">방역·방제시설, 분뇨처리시설</span></li>
+          <li><span class="bnf-liln">경관개선시설 설치 등</span></li>
+        </ul>
+      </dd></div>
+      <div><dt>신청방법</dt><dd>해당 시군 읍면동 <span class="bnf-nw">축산 담당부서</span> 제출</dd></div>
+    </dl>
+    <a class="bnf-btn" href="https://www.jeonnam-gwangju.go.kr/boardView.do?pageId=jngj22&amp;boardId=JG_0000000003&amp;seq=956&amp;movePage=1&amp;recordCnt=10" target="_blank" rel="noopener" aria-label="2027 축사시설현대화사업 자세히 보기">자세히 보기</a>
+  </article>
+
+  <article class="bnf-card is-youth" id="bnf-b3">
+    <div class="bnf-card__head">
+      <figure class="bnf-icon bnf-icon--w85 bnf-icon--trophy">
+        <img data-name="공모전" width="1016" height="933" alt="" loading="eager" decoding="async"
+             src="img/공모전.webp">
+      </figure>
+      <div class="bnf-card__body">
+        <div class="bnf-card__meta"><span class="bnf-chip is-youth">공모전</span><span class="bnf-dday" data-end="2026-10-31">10. 31.(토)까지</span></div>
+        <h2><span class="bnf-nw">널리 알리고 싶은</span><br><strong><span class="bnf-nw">자원봉사활동</span> <span class="bnf-nw bnf-blk500">우수사례가 있다면!</span></strong></h2>
+        <p class="bnf-lede">자원봉사활동의 우수사례를 발굴·공유하고 자원봉사의 가치 확산 및 참여 문화 조성에 기여하는 <b class="bnf-hl">&lsquo;2026 자원봉사활동 우수 체험사례 공모전&rsquo;</b>에 도전하세요!</p>
+      </div>
+    </div>
+    <div class="bnf-point is-youth"><b>10명 시상</b><span>최우수상 2 · 우수상 2 · 장려상 6</span></div>
+    <dl>
+      <div><dt>공모기간</dt><dd><time datetime="2026-09-07">2026. 9. 7.(월)</time>~<time datetime="2026-10-31">10. 31.(토)</time></dd></div>
+      <div><dt>대상</dt><dd>전남광주통합특별시민<span class="bnf-note">※ 특별시 내 소재 학교에 재학 또는 직장에 재직하면서<span class="bnf-brw"></span>특별시 내 자원봉사활동에 참가한 자도 포함</span></dd></div>
+      <div><dt>공모부문</dt><dd>일반부(대학생 포함), <span class="bnf-nw">학생부(중·고생)</span></dd></div>
+      <div><dt>공모분야</dt><dd>사회복지, 문화체육, 환경미화, 교통질서, 재난재해 지원·복구 등<span class="bnf-brw"></span>모든 영역의 자원봉사활동 체험사례<span class="bnf-note">※ 최근 2년(&rsquo;24. 10.~&rsquo;26. 9.)의 자원봉사 실적이 확인되는 체험수기에 한함</span></dd></div>
+      <div><dt>시상</dt><dd>10명(최우수상 2, 우수상 2, 장려상 6)</dd></div>
+      <div><dt>실적인증</dt><dd>
+        <ul class="bnf-dot">
+          <li><span class="bnf-liln">1365자원봉사포털 <span class="bnf-nw">(www.1365.go.kr)</span></span></li>
+          <li><span class="bnf-liln">사회복지자원봉사 인증관리 <span class="bnf-nw">(www.vms.or.kr)</span></span></li>
+        </ul>
+      </dd></div>
+    </dl>
+    <a class="bnf-btn" href="https://sido.jeonnam.go.kr/citynet/jsp/sap/SAPGosiBizProcess.do?command=searchDetail&amp;flag=gosiGL&amp;svp=Y&amp;sido=&amp;sno=47575&amp;gosiGbn=A" target="_blank" rel="noopener" aria-label="자원봉사활동 우수 체험사례 공모전 공고문 자세히 보기(공고번호 2026-1403)">공고문 자세히 보기</a>
+  </article>
+
+  <footer class="bnf-tags">
+    <ul>
+      <li>#광주시내버스</li>
+      <li>#노선개편</li>
+      <li>#축사시설현대화사업</li>
+      <li>#축사융자지원</li>
+      <li>#축산농가</li>
+      <li>#자원봉사</li>
+      <li>#우수체험사례공모전</li>
+      <li>#전남광주공모전</li>
+      <li>#전남광주혜택</li>
+      <li>#전남광주통합특별시</li>
+    </ul>
+  </footer>
+</article>
+
+<dialog class="bnf-lightbox" aria-label="포스터 크게 보기">
+  <img alt="">
+  <button type="button" class="bnf-lightbox__close">닫기</button>
+</dialog>
+
+<script>
+(function(){
+  var root = document.currentScript && document.currentScript.closest('.contents_div');
+  if(!root){
+    var all = document.querySelectorAll('.contents_div');
+    root = all[all.length-1];
+  }
+  if(!root) return;
+
+  root.querySelectorAll('.bnf-toc button[data-go]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var t = root.querySelector('#' + btn.dataset.go);
+      if(!t) return;
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+      t.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block:'start' });
+      t.setAttribute('tabindex','-1');
+      t.focus({ preventScroll:true });
+    });
+  });
+
+  var today = new Date(); today.setHours(0,0,0,0);
+  var DAY = 864e5;
+
+  root.querySelectorAll('[data-end]').forEach(function(el){
+    var d = Math.round((new Date(el.dataset.end + 'T00:00:00') - today) / DAY);
+    if(d > 0){ el.textContent = '마감 D-' + d; }
+    else if(d === 0){ el.textContent = '오늘 마감'; }
+    else { el.textContent = '접수 종료'; el.classList.add('is-off'); }
+  });
+
+  root.querySelectorAll('[data-start]').forEach(function(el){
+    var d = Math.round((new Date(el.dataset.start + 'T00:00:00') - today) / DAY);
+    if(d > 0){ el.textContent = (el.dataset.label || '접수 시작') + ' D-' + d; }
+  });
+
+  /* 아이콘 카드(모바일) : 아이콘 가운데를 [키커 + h2] 묶음 가운데에 맞춘다 (모바일 전 구간 동일)
+     제목 크기·줄 수·아이콘 비율이 바뀌어도 실측으로 맞추므로 손댈 것 없음. 웹(≥600)은 CSS 그대로 */
+  var alignIcons = function(){
+    var cs = getComputedStyle(root);   /* 컨테이너 쿼리(bnfroot)와 같은 기준 : 패딩 뺀 콘텐츠 폭 */
+    var mobile = root.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight) < 600;
+    root.querySelectorAll('.bnf-card').forEach(function(card){
+      var ic = card.querySelector('.bnf-icon:not(.bnf-icon--off)');
+      var h2 = card.querySelector('h2');
+      var head = card.querySelector('.bnf-card__head');
+      if(!ic || !h2 || !head) return;
+      ic.style.marginTop = ''; ic.style.shapeOutside = '';
+      var im = ic.querySelector('img');
+      if(im && im.naturalWidth && im.naturalHeight){ ic.style.setProperty('--bnf-icon-r', Math.sqrt(im.naturalWidth / im.naturalHeight).toFixed(3)); }
+      if(!mobile) return;
+      var base = 0;   /* 칩 줄 옆까지 올라갈 수 있게 (칩 줄은 한 줄 고정·왼쪽만 차지) */
+      for(var k = 0; k < 3; k++){   /* 아이콘 위치가 제목 줄바꿈에 영향 → 안정될 때까지 */
+        var top = head.getBoundingClientRect().top;
+        var hr = h2.getBoundingClientRect();
+        var meta = card.querySelector('.bnf-card__meta');
+        var mtop = meta ? meta.getBoundingClientRect().top : hr.top;
+        var dy = parseFloat(getComputedStyle(ic).getPropertyValue('--bnf-icon-dy')) || 0;   /* 아이콘별 위로 보정 */
+        var ir = ic.getBoundingClientRect();
+        /* 모바일 전 구간 같은 규칙 : 아이콘 가운데를 [키커(칩 줄) + h2] 묶음 가운데에 (구간 경계에서 튀지 않게 하나로 통일) */
+        var mt = Math.max(base, (mtop + hr.bottom) / 2 - top - ir.height / 2 - dy);
+        var px = mt.toFixed(2) + 'px';
+        if(ic.style.marginTop === px) break;
+        ic.style.marginTop = px;
+        ic.style.shapeOutside = 'inset(' + px + ' 0 0 0) margin-box';
+      }
+    });
+  };
+  alignIcons();
+  root.querySelectorAll('.bnf-icon img').forEach(function(im){ im.addEventListener('load', alignIcons); });
+  window.addEventListener('load', alignIcons);
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(alignIcons)['catch'](function(){}); }
+  var alignT;
+  window.addEventListener('resize', function(){ clearTimeout(alignT); alignT = setTimeout(alignIcons, 150); });
+
+  /* 포스터 : 로딩 중엔 프레임 + '크게 보기' 바로 노출(is-wait), 없거나 깨지면 빈 프레임(is-empty) */
+  root.querySelectorAll('.bnf-poster img, .bnf-icon img').forEach(function(img){
+    var fig = img.closest('.bnf-poster, .bnf-icon');
+    var btn = fig.querySelector('.bnf-poster__btn');
+    var isPoster = fig.classList.contains('bnf-poster');
+    var mark = function(){ fig.classList.remove('is-wait'); fig.classList.add('is-empty'); if(btn) btn.setAttribute('tabindex','-1'); };
+    var unmark = function(){ fig.classList.remove('is-wait','is-empty'); if(btn) btn.removeAttribute('tabindex'); };
+    if(img.complete){ if(img.naturalWidth) unmark(); else mark(); }
+    else if(isPoster){ fig.classList.add('is-wait'); }
+    else { mark(); }
+    img.addEventListener('error', mark);
+    img.addEventListener('load', function(){ if(img.naturalWidth) unmark(); else mark(); });
+  });
+
+  var lb = root.querySelector('.bnf-lightbox');
+  if(lb){
+    var lbImg = lb.querySelector('img');
+    var opener = null;
+
+    var onClosed = function(){
+      document.documentElement.style.overflow = '';
+      lbImg.removeAttribute('src');
+      if(opener){ opener.focus(); opener = null; }
+    };
+    var openLB = function(btn){
+      var img = btn.querySelector('img');
+      if(!img) return;
+      opener = btn;
+      lbImg.src = img.currentSrc || img.src;
+      lbImg.alt = img.alt || '';
+      if(lb.showModal){ lb.showModal(); } else { lb.setAttribute('open',''); }
+      document.documentElement.style.overflow = 'hidden';
+    };
+    var closeLB = function(){
+      if(lb.open && lb.close){ lb.close(); } else { lb.removeAttribute('open'); onClosed(); }
+    };
+    lb.addEventListener('close', onClosed);
+
+    root.querySelectorAll('.bnf-poster__btn').forEach(function(btn){
+      btn.addEventListener('click', function(){ openLB(btn); });
+    });
+
+    lb.addEventListener('click', function(e){
+      if(e.target === lb || e.target.classList.contains('bnf-lightbox__close')) closeLB();
+    });
+  }
+})();
+</script>
+
+
+<script>
+/* ── 히어로 모션 : 조각에 원본 레이어를 연결 → 레이어 로드 완료 + 히어로가 화면에 30% 들어왔을 때 1회 재생 ──
+   임베드 페이지라 접속 시점이 아니라 진입 시점에 시작한다. 4초 안에 준비되지 않으면 정지 화면으로 돌아간다 */
+(function(){
+  var root = document.currentScript && document.currentScript.closest('.contents_div');
+  if(!root) root = document.querySelector('.contents_div');
+  if(!root || !root.classList.contains('is-bnf-hm')) return;
+  var hm = root.querySelector('.bnf-hm'), frame = root.querySelector('.bnf-hero__frame');
+  if(!hm || !frame || !('IntersectionObserver' in window)){ root.classList.remove('is-bnf-hm'); return; }
+
+  var bases = {};
+  [].forEach.call(hm.querySelectorAll('img[data-layer]'), function(im){ bases[im.dataset.layer] = im; });
+  [].forEach.call(hm.querySelectorAll('img[data-ly]'), function(im){
+    var b = bases[im.dataset.ly]; if(b) im.src = b.currentSrc || b.src;
+  });
+
+  var imgs = [].slice.call(hm.querySelectorAll('img'));
+  var left = imgs.length, loaded = false, inView = false, played = false, failed = false;
+  function fail(){ if(played || failed) return; failed = true; root.classList.remove('is-bnf-hm'); }
+  function tryPlay(){
+    if(played || failed || !loaded || !inView) return;
+    played = true;
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){ root.classList.add('is-bnf-hm-play'); }); });
+  }
+  imgs.forEach(function(im){
+    function ok(){ if(!im.naturalWidth){ fail(); return; } if(--left === 0){ loaded = true; tryPlay(); } }
+    if(im.complete){ ok(); }
+    else { im.addEventListener('load', ok, { once:true }); im.addEventListener('error', fail, { once:true }); }
+  });
+  setTimeout(function(){ if(!loaded) fail(); }, 4000);
+
+  var io = new IntersectionObserver(function(en){
+    var e = en[0];
+    if(e.intersectionRatio >= .3 || (e.isIntersecting && e.intersectionRect.height >= window.innerHeight * .3)){
+      inView = true; io.disconnect(); tryPlay();
+    }
+  }, { threshold:[0, .3] });
+  io.observe(frame);
+
+  new IntersectionObserver(function(en){
+    root.classList.toggle('is-bnf-hm-off', !en[0].isIntersecting);
+  }).observe(frame);
+})();
+</script>
+
+<script>
+/* ── 스크롤 등장 : 뷰포트 진입 시 1회 페이드업 ── */
+(function () {
+  var root = document.querySelector('.contents_div');
+  if(!root || !root.classList.contains('is-bnf-rv')) return;
+
+  var targets = root.querySelectorAll('.bnf-intro, .bnf-card, .bnf-tags');
+  if(!targets.length) return;
+
+  /* 블록 안 이미지가 자리를 잡은 뒤 등장시킨다 (안전 타임아웃 900ms) */
+  function settled(el){
+    var imgs = [].slice.call(el.querySelectorAll('img'));
+    if(!imgs.length) return Promise.resolve();
+
+    var done = Promise.all(imgs.map(function(im){
+      if(im.complete && im.naturalWidth){
+        return im.decode ? im.decode()['catch'](function(){}) : Promise.resolve();
+      }
+      return new Promise(function(res){
+        im.addEventListener('load', function(){
+          if(im.decode){ im.decode()['catch'](function(){}).then(res); } else { res(); }
+        }, { once:true });
+        im.addEventListener('error', res, { once:true });
+      });
+    }));
+
+    return Promise.race([
+      done,
+      new Promise(function(res){ setTimeout(res, 120); })
+    ]);
+  }
+
+  var io = new IntersectionObserver(function (entries, obs) {
+    var i = 0;
+    entries.forEach(function (entry) {
+      if(!entry.isIntersecting) return;
+      var el = entry.target;
+      obs.unobserve(el);
+      var delay = (i * 40) + 'ms';
+      i++;
+      settled(el).then(function(){
+        el.style.transitionDelay = delay;
+        el.classList.add('is-bnf-in');
+      });
+    });
+  }, {
+    root: null,
+    threshold: 0,
+    rootMargin: '0px 0px -5% 0px'
+  });
+
+  targets.forEach(function (el) { io.observe(el); });
+})();
+</script>
+</div>
